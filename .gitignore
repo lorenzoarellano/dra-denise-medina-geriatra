@@ -29,6 +29,8 @@ desktop.ini
 
 # ── Playwright / test artifacts ───────────────────────
 .playwright-mcp/
+.playwright/
+playwright/
 playwright-report/
 test-results/
 
