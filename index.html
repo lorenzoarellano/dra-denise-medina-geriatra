@@ -136,32 +136,14 @@
     <!--====== Favicon ======-->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts — non-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet"></noscript>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary:   { DEFAULT: '#8766aa', dark: '#6b4f8a', light: '#a88bc5' },
-                        secondary: { DEFAULT: '#ca8ebe', light: '#deb8d9' },
-                        ink:       { DEFAULT: '#4e4d4d', muted: '#7a7979' },
-                    },
-                    fontFamily: { sans: ['DM Sans', 'sans-serif'] },
-                    borderRadius: { '4xl': '2rem', '5xl': '2.5rem' },
-                }
-            }
-        }
-    </script>
-
-    <!-- GSAP + ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="assets/css/tailwind.css">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
@@ -394,8 +376,12 @@
             transition: all .3s ease;
             cursor: pointer;
             border: none;
+            /* 44px minimum touch target via padding */
+            padding: 18px 10px;
+            margin: 0 2px;
+            background-clip: content-box;
         }
-        .t-dot.active { background: #8766aa; width: 22px; }
+        .t-dot.active { background: #8766aa; width: 22px; background-clip: content-box; }
 
         /* ─── Blog cards ─────────────────────────────────────── */
         .blog-card-new {
@@ -448,7 +434,8 @@
         }
 
         /* ─── Scroll-reveal initial state ───────────────────── */
-        .reveal { opacity: 0; transform: translateY(28px); }
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
         /* ─── Section backgrounds ────────────────────────────── */
         .section-tinted {
@@ -540,11 +527,6 @@
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
-
-        <!-- Decorative shape -->
-        <div class="absolute top-28 right-8 w-56 h-56 opacity-10 hidden lg:block pointer-events-none">
-            <img src="assets/images/shape/circle-logo-1.png" alt="" class="w-full">
-        </div>
 
         <!-- ── Image (absolute, pegada al bottom del section) ── -->
         <div class="absolute bottom-0 right-0 hidden lg:flex items-end justify-center pointer-events-none" style="width:50%; z-index:1;">
@@ -692,9 +674,9 @@
                     <h2 class="text-4xl lg:text-5xl font-bold mb-3" style="color:#4e4d4d; letter-spacing:-0.03em;">
                         Confía en nosotros
                     </h2>
-                    <h4 class="text-xl font-semibold mb-5" style="color:#7a7979;">
+                    <h3 class="text-xl font-semibold mb-5" style="color:#7a7979;">
                         para brindar el mejor cuidado a quienes más amas.
-                    </h4>
+                    </h3>
                     <p class="leading-relaxed mb-4 text-sm lg:text-base" style="color:#7a7979;">
                         La <strong style="color:#4e4d4d;">Dra. Denise Medina Peralta</strong> es una
                         <strong style="color:#4e4d4d;">médico geriatra</strong> una reconocida experta en geriatría
@@ -728,10 +710,10 @@
                                  alt="Insignia de la Dra. Denise Medina Peralta"
                                  class="w-14 h-14 object-contain flex-shrink-0">
                             <div>
-                                <h5 class="font-bold mb-1.5 text-sm lg:text-base leading-snug" style="color:#4e4d4d;">
+                                <h4 class="font-bold mb-1.5 text-sm lg:text-base leading-snug" style="color:#4e4d4d;">
                                     Un sistema que garantiza la legalidad,<br>
                                     seguridad y orden de tu expediente médico.
-                                </h5>
+                                </h4>
                                 <p class="text-sm mb-3" style="color:#7a7979;">
                                     🏅 <strong style="color:#4e4d4d;">Soy un médico que cumple con la NOM-004</strong>
                                 </p>
@@ -1159,17 +1141,17 @@
                     </div><!-- /slider -->
 
                     <!-- Dot nav -->
-                    <div class="flex items-center gap-2 mt-6">
-                        <button class="t-dot active" id="dot-0" onclick="goToSlide(0)"></button>
-                        <button class="t-dot"        id="dot-1" onclick="goToSlide(1)"></button>
-                        <button class="t-dot"        id="dot-2" onclick="goToSlide(2)"></button>
-                        <button class="t-dot"        id="dot-3" onclick="goToSlide(3)"></button>
-                        <button class="t-dot"        id="dot-4" onclick="goToSlide(4)"></button>
-                        <button class="t-dot"        id="dot-5" onclick="goToSlide(5)"></button>
-                        <button class="t-dot"        id="dot-6" onclick="goToSlide(6)"></button>
-                        <button class="t-dot"        id="dot-7" onclick="goToSlide(7)"></button>
-                        <button class="t-dot"        id="dot-8" onclick="goToSlide(8)"></button>
-                        <button class="t-dot"        id="dot-9" onclick="goToSlide(9)"></button>
+                    <div class="flex items-center gap-2 mt-6" role="tablist" aria-label="Testimonios">
+                        <button class="t-dot active" id="dot-0" onclick="goToSlide(0)" aria-label="Testimonio 1" aria-selected="true"  role="tab"></button>
+                        <button class="t-dot"        id="dot-1" onclick="goToSlide(1)" aria-label="Testimonio 2" aria-selected="false" role="tab"></button>
+                        <button class="t-dot"        id="dot-2" onclick="goToSlide(2)" aria-label="Testimonio 3" aria-selected="false" role="tab"></button>
+                        <button class="t-dot"        id="dot-3" onclick="goToSlide(3)" aria-label="Testimonio 4" aria-selected="false" role="tab"></button>
+                        <button class="t-dot"        id="dot-4" onclick="goToSlide(4)" aria-label="Testimonio 5" aria-selected="false" role="tab"></button>
+                        <button class="t-dot"        id="dot-5" onclick="goToSlide(5)" aria-label="Testimonio 6" aria-selected="false" role="tab"></button>
+                        <button class="t-dot"        id="dot-6" onclick="goToSlide(6)" aria-label="Testimonio 7" aria-selected="false" role="tab"></button>
+                        <button class="t-dot"        id="dot-7" onclick="goToSlide(7)" aria-label="Testimonio 8" aria-selected="false" role="tab"></button>
+                        <button class="t-dot"        id="dot-8" onclick="goToSlide(8)" aria-label="Testimonio 9" aria-selected="false" role="tab"></button>
+                        <button class="t-dot"        id="dot-9" onclick="goToSlide(9)" aria-label="Testimonio 10" aria-selected="false" role="tab"></button>
                     </div>
                 </div>
 
@@ -1787,14 +1769,14 @@
                          onerror="this.parentElement.style.background='linear-gradient(135deg,rgba(135,102,170,.12),rgba(202,142,190,.08))'">
                 </div>
                 <div class="p-6 flex flex-col flex-1">
-                    <div class="flex items-center gap-1.5 text-xs mb-3" style="color:#a88bc5;">
+                    <div class="flex items-center gap-1.5 text-xs mb-3" style="color:#7a5fa0;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                         ${date}
                     </div>
                     <h3 class="font-bold text-base leading-snug mb-3" style="color:#8766aa;">
                         <a href="post.html?slug=${post.slug}" style="color:inherit;text-decoration:none;">${post.title.rendered}</a>
                     </h3>
-                    <p class="text-xs leading-relaxed flex-1 mb-4" style="color:#7a7979;">${excerpt}</p>
+                    <p class="text-xs leading-relaxed flex-1 mb-4" style="color:#5a5959;">${excerpt}</p>
                     <a href="post.html?slug=${post.slug}"
                        class="inline-flex items-center gap-1 text-xs font-bold transition-colors"
                        style="color:#8766aa;text-decoration:none;"
@@ -1808,23 +1790,19 @@
     }
     document.addEventListener('DOMContentLoaded', loadBlogPreview);
 
-    // ── GSAP scroll animations ───────────────────────
+    // ── Scroll-reveal: IntersectionObserver ─────────────────────────
     document.addEventListener('DOMContentLoaded', () => {
-        if (typeof gsap === 'undefined') return;
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Hero elements animate on load (staggered)
-        gsap.utils.toArray('#hero-section .reveal').forEach((el, i) => {
-            gsap.to(el, { opacity: 1, y: 0, duration: 0.75, delay: 0.25 + i * 0.14, ease: 'power3.out' });
+        // Hero: staggered fade-in on load (no reflow)
+        document.querySelectorAll('#hero-section .reveal').forEach((el, i) => {
+            el.style.transitionDelay = (0.25 + i * 0.14) + 's';
+            requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-visible')));
         });
-
-        // All other .reveal on scroll
-        gsap.utils.toArray('.reveal').forEach(el => {
-            if (el.closest('#hero-section')) return;
-            gsap.to(el, {
-                scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
-                opacity: 1, y: 0, duration: 0.7, ease: 'power3.out'
-            });
+        // All other .reveal: observe on scroll
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => {
+            if (!el.closest('#hero-section')) io.observe(el);
         });
     });
 

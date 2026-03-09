@@ -40,7 +40,13 @@ npm-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# ── Firebase ──────────────────────────────────────────
+.firebase/
+.firebaserc
+firebase.json
+
 # ── Build / cache ─────────────────────────────────────
 dist/
 .cache/
+assets/css/tailwind.css
 *.log

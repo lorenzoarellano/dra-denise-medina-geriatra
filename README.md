@@ -139,14 +139,16 @@ Credential: Especialidad cursada en CMN La Raza, UNAM
 ## 🏗️ Tech Stack
 
 ```
-Frontend        : HTML5 · Tailwind CSS CDN v3 · Vanilla JS
+Frontend        : HTML5 · Tailwind CSS v3 (CLI compiled, static) · Vanilla JS
 Icons           : Lucide Icons (deferred)
 HTTP Client     : Axios (deferred)
 CMS / Blog API  : WordPress REST API (headless)
-Animations      : GSAP (deferred) · CSS animations
+Animations      : CSS transitions + IntersectionObserver (native, zero reflow)
 Analytics       : Google Analytics 4 (G-R7GFH5G7JB)
 Consent         : Google Consent Mode v2 · Custom cookie banner (localStorage)
 Assets          : WebP images throughout · .ico favicon
+Hosting         : Firebase Hosting
+Build tool      : Tailwind CLI (npm run build:css)
 ```
 
 ---
@@ -165,24 +167,70 @@ dradenisemedina.com/
 ├── 404.html            # Custom 404 page
 ├── sitemap.xml         # XML sitemap (5 indexable URLs)
 ├── robots.txt          # Crawl directives + sitemap declaration
+├── tailwind.config.js  # Tailwind theme config (colors, fonts, border-radius)
+├── package.json        # npm scripts: build:css, watch:css
 └── assets/
     ├── images/         # WebP-optimized images
-    ├── css/            # Custom stylesheets
+    ├── css/
+    │   ├── tailwind.css    # Compiled output (19 KB minified, gitignored)
+    │   ├── input.css       # Tailwind entry point (@tailwind base/components/utilities)
+    │   └── style.css       # Custom component styles
     └── js/             # theme.js
 ```
+
+### Build
+
+```bash
+# One-time setup
+npm install
+
+# Compile Tailwind CSS (production, minified)
+npm run build:css
+
+# Watch mode (development)
+npm run watch:css
+```
+
+> **Note:** `assets/css/tailwind.css` is a build artifact — it is gitignored and must be compiled before deploying. Firebase Hosting serves the compiled file directly.
 
 ---
 
 ## ⚡ Performance Optimizations
 
+### PageSpeed Insights scores (dradenisemedina.com)
+
+| Category | Score |
+|---|---|
+| 🟢 Performance | **95** |
+| 🟢 Accessibility | **100** |
+| 🟢 Best Practices | **100** |
+| 🟢 SEO | **100** |
+
+### Core Web Vitals
+
+| Metric | Value | Status |
+|---|---|---|
+| FCP (First Contentful Paint) | ~0.8 s | ✅ |
+| LCP (Largest Contentful Paint) | ~2.5 s | ✅ |
+| TBT (Total Blocking Time) | ~0 ms | ✅ |
+| CLS (Cumulative Layout Shift) | 0 | ✅ |
+| SI (Speed Index) | ~1.5 s | ✅ |
+
+### Optimization techniques
+
 | Technique | Detail |
 |---|---|
-| Render-blocking elimination | All third-party scripts use `defer` |
-| LCP optimization | Hero `.webp` preloaded + `fetchpriority="high"` + `loading="eager"` |
-| CLS prevention | All images have explicit `width`/`height` attributes |
-| Below-fold images | `loading="lazy"` on all non-critical images |
-| Font loading | Google Fonts with `preconnect` hints |
-| Semantic HTML | `<main>`, correct heading hierarchy, ARIA labels on interactive elements |
+| **Tailwind CSS — CLI compiled** | Replaced CDN script (~220 ms render-blocking) with a 19 KB static compiled file served from Firebase CDN. Zero JS execution at runtime. |
+| **Zero forced reflows** | Removed GSAP + ScrollTrigger entirely. Scroll animations now use `IntersectionObserver` + CSS `transition` — fully async, no `getBoundingClientRect()` calls. |
+| **Google Fonts non-blocking** | All 8 pages use `media="print" onload="this.media='all'"` + `<noscript>` fallback. Fonts never block render. |
+| **LCP optimization** | Hero `.webp` preloaded with `<link rel="preload">` + `fetchpriority="high"` + `loading="eager"`. |
+| **CLS prevention** | All images have explicit `width`/`height` attributes. |
+| **Deferred third-party scripts** | Lucide Icons and Axios use `defer`. |
+| **Security headers** | HSTS, `X-Content-Type-Options`, `X-Frame-Options`, COOP, `Referrer-Policy` set in `firebase.json`. |
+| **Image format** | All images served as `.webp`. |
+| **Touch targets** | Testimonial slider dots padded to ≥44×44 px via `padding` + `background-clip: content-box`. |
+| **Heading hierarchy** | Correct `h1 → h2 → h3 → h4` — no skipped levels on any page. |
+| **Color contrast** | All text passes WCAG AA minimum contrast ratios. |
 
 ---
 

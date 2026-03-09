@@ -57,29 +57,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary:   { DEFAULT: '#8766aa', dark: '#6b4f8a', light: '#a88bc5' },
-                        secondary: { DEFAULT: '#ca8ebe', light: '#deb8d9' },
-                        ink:       { DEFAULT: '#4e4d4d', muted: '#7a7979' },
-                    },
-                    fontFamily: { sans: ['DM Sans', 'sans-serif'] },
-                    borderRadius: { '4xl': '2rem', '5xl': '2.5rem' },
-                }
-            }
-        }
-    </script>
-
-    <!-- GSAP + ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="assets/css/tailwind.css">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
@@ -180,7 +160,8 @@
             100% { box-shadow: 0 4px 18px rgba(37,211,102,.45), 0 0 0 0   rgba(37,211,102,0);   }
         }
 
-        .reveal { opacity: 0; transform: translateY(28px); }
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
         .section-tinted { background: linear-gradient(135deg, rgba(135,102,170,.05) 0%, rgba(202,142,190,.06) 100%); }
         .footer-dark { background: linear-gradient(45deg, #000000, #000000, #140914, #111111); }
 
@@ -604,26 +585,20 @@
     }
     document.querySelectorAll('.wpLunch').forEach(btn => btn.addEventListener('click', loginNotification));
 
+    // Scroll-reveal: IntersectionObserver (no forced reflow)
     document.addEventListener('DOMContentLoaded', () => {
-        if (typeof gsap === 'undefined') return;
-        gsap.registerPlugin(ScrollTrigger);
-        // Hero animations on load
+        // Hero: staggered fade-in on load
         document.querySelectorAll('.page-hero .reveal').forEach((el, i) => {
-            gsap.to(el, { opacity: 1, y: 0, duration: 0.75, delay: 0.2 + i * 0.13, ease: 'power3.out' });
+            el.style.transitionDelay = (0.2 + i * 0.13) + 's';
+            requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-visible')));
         });
-        // Scroll-triggered reveals
-        gsap.utils.toArray('.reveal').forEach(el => {
-            if (el.closest('.page-hero')) return;
-            gsap.to(el, {
-                scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
-                opacity: 1, y: 0, duration: 0.7, ease: 'power3.out'
-            });
+        // All other .reveal: observe on scroll
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => {
+            if (!el.closest('.page-hero')) io.observe(el);
         });
-    });
-    window.addEventListener('load', () => {
-        if (typeof gsap === 'undefined') {
-            document.querySelectorAll('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
-        }
     });
     </script>
 
