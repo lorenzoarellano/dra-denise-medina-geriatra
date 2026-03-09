@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Cookie Consent Mode v2 (must precede gtag) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        (function(){
+            var _cc = null;
+            try { _cc = JSON.parse(localStorage.getItem('gdm_cookie_consent')); } catch(e) {}
+            gtag('consent', 'default', {
+                'analytics_storage': (_cc && _cc.analytics) ? 'granted' : 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': (_cc && _cc.v === '1') ? 0 : 500
+            });
+        })();
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7GFH5G7JB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-R7GFH5G7JB');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Página no encontrada - Dra. Denise Medina Peralta, Geriatra en Durango.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Página no encontrada | Dra. Denise Medina Peralta</title>
+
+    <!-- Open Graph / Social Share -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dra. Denise Medina Peralta | Geriatra Durango">
+    <meta property="og:title" content="Página no encontrada | Dra. Denise Medina Peralta">
+    <meta property="og:description" content="Página no encontrada - Dra. Denise Medina Peralta, Geriatra en Durango.">
+    <meta property="og:image" content="https://dradenisemedina.com/assets/images/social-share-cover.jpg">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Página no encontrada | Dra. Denise Medina Peralta">
+    <meta name="twitter:description" content="Página no encontrada - Dra. Denise Medina Peralta, Geriatra en Durango.">
+    <meta name="twitter:image" content="https://dradenisemedina.com/assets/images/social-share-cover.jpg">
+
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary:   { DEFAULT: '#8766aa', dark: '#6b4f8a', light: '#a88bc5' },
+                        secondary: { DEFAULT: '#ca8ebe', light: '#deb8d9' },
+                        ink:       { DEFAULT: '#4e4d4d', muted: '#7a7979' },
+                    },
+                    fontFamily: { sans: ['DM Sans', 'sans-serif'] },
+                    borderRadius: { '4xl': '2rem', '5xl': '2.5rem' },
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <!-- Axios (wpLunch) -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; color: #4e4d4d; overflow-x: hidden; background: #faf8ff; min-height: 100vh; display: flex; flex-direction: column; }
+
+        .glass { background: rgba(255,255,255,0.58); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border: 1px solid rgba(255,255,255,0.65); }
+
+        .navbar-island {
+            position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+            z-index: 1000; width: calc(100% - 32px); max-width: 920px;
+            background: rgba(255,255,255,0.42); backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px);
+            border: 1px solid rgba(255,255,255,0.55); border-radius: 9999px; padding: 10px 20px;
+            box-shadow: 0 8px 32px rgba(135,102,170,0.10), 0 2px 8px rgba(0,0,0,0.04);
+            transition: box-shadow .35s ease, background .35s ease;
+        }
+        .navbar-island.scrolled { background: rgba(255,255,255,0.68); box-shadow: 0 12px 42px rgba(135,102,170,0.22), 0 4px 14px rgba(0,0,0,0.09); }
+
+        .nav-link-pill { position: relative; font-size: 14px; font-weight: 500; color: #4e4d4d; padding: 5px 2px; text-decoration: none; transition: color .25s; }
+        .nav-link-pill::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #8766aa, #ca8ebe); transition: width .3s ease; }
+        .nav-link-pill:hover { color: #8766aa; }
+        .nav-link-pill:hover::after { width: 100%; }
+
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: linear-gradient(135deg, #8766aa 0%, #ca8ebe 100%);
+            color: #fff; border-radius: 9999px; padding: 13px 28px; font-weight: 600; font-size: 14px;
+            text-decoration: none; transition: transform .25s ease, box-shadow .25s ease;
+            box-shadow: 0 4px 20px rgba(135,102,170,0.32); border: none; cursor: pointer; line-height: 1;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(135,102,170,0.48); color: #fff; }
+
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(12px);
+            color: #8766aa; border-radius: 9999px; padding: 12px 28px; font-weight: 600; font-size: 14px;
+            text-decoration: none; transition: transform .25s ease, box-shadow .25s ease;
+            box-shadow: 0 2px 12px rgba(135,102,170,0.14); border: 1.5px solid rgba(135,102,170,0.3); line-height: 1;
+        }
+        .btn-outline:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(135,102,170,0.22); background: rgba(255,255,255,0.9); }
+
+        .gradient-text { background: linear-gradient(135deg, #8766aa 0%, #ca8ebe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        #mobile-menu { display: none; position: fixed; top: 82px; left: 16px; right: 16px; z-index: 999; border-radius: 22px; padding: 22px 24px; animation: slideDown .28s ease; }
+        #mobile-menu.open { display: block; }
+        @keyframes slideDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+
+        /* Hero */
+        .error-hero {
+            flex: 1; position: relative; overflow: hidden;
+            background: linear-gradient(135deg, #f5f0ff 0%, #fdf0fb 50%, #f0ebff 100%);
+            display: flex; align-items: center; justify-content: center;
+            padding: 140px 20px 80px;
+        }
+        .orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+        .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(135,102,170,0.22), transparent); top: -100px; right: -80px; animation: floatA 22s ease-in-out infinite; }
+        .orb-2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(202,142,190,0.18), transparent); bottom: -60px; left: -70px; animation: floatB 28s ease-in-out infinite; }
+        .orb-3 { width: 200px; height: 200px; background: radial-gradient(circle, rgba(135,102,170,0.12), transparent); top: 50%; left: 50%; transform: translate(-50%,-50%); animation: floatA 18s ease-in-out infinite reverse; }
+        @keyframes floatA { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-40px,35px)} }
+        @keyframes floatB { 0%,100%{transform:translate(0,0)} 50%{transform:translate(35px,-28px)} }
+
+        /* 404 number */
+        .display-404 {
+            font-size: clamp(7rem, 20vw, 13rem);
+            font-weight: 800; line-height: 1;
+            background: linear-gradient(135deg, #8766aa 0%, #ca8ebe 50%, #a88bc5 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            letter-spacing: -0.04em; user-select: none;
+            filter: drop-shadow(0 4px 30px rgba(135,102,170,0.25));
+            animation: pulse404 4s ease-in-out infinite;
+        }
+        @keyframes pulse404 { 0%,100%{filter:drop-shadow(0 4px 30px rgba(135,102,170,.25))} 50%{filter:drop-shadow(0 8px 50px rgba(202,142,190,.4))} }
+
+        /* Decorative floating card */
+        .float-card {
+            background: rgba(255,255,255,0.72); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.85); border-radius: 20px;
+            padding: 14px 20px; display: inline-flex; align-items: center; gap: 10px;
+            box-shadow: 0 8px 32px rgba(135,102,170,0.12);
+            animation: floatCard 6s ease-in-out infinite;
+        }
+        @keyframes floatCard { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+        #back-to-top {
+            position: fixed; bottom: 28px; right: 28px; width: 56px; height: 56px; border-radius: 50%;
+            background: #25D366; color: #fff;
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            opacity: 1; transform: translateY(0); animation: waPulse 2s ease-out infinite;
+            box-shadow: 0 4px 18px rgba(37,211,102,.45); z-index: 500; text-decoration: none;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+        @keyframes waPulse {
+            0%   { box-shadow: 0 4px 18px rgba(37,211,102,.45), 0 0 0 0   rgba(37,211,102,.55); }
+            70%  { box-shadow: 0 4px 18px rgba(37,211,102,.45), 0 0 0 18px rgba(37,211,102,0);  }
+            100% { box-shadow: 0 4px 18px rgba(37,211,102,.45), 0 0 0 0   rgba(37,211,102,0);   }
+        }
+
+        .footer-dark { background: linear-gradient(45deg, #000000, #000000, #140914, #111111); }
+
+        @media(max-width:767px){
+            .navbar-island { border-radius: 22px; padding: 10px 16px; }
+            .orb { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Island -->
+    <nav class="navbar-island glass" id="navbar">
+        <div class="flex items-center justify-between gap-6">
+            <a href="index.html" class="flex-shrink-0">
+                <img src="assets/images/logo/logo.webp" alt="Dra. Denise Medina Peralta" width="144" height="36" class="h-9 w-auto">
+            </a>
+            <div class="hidden md:flex items-center gap-7">
+                <a href="index.html" class="nav-link-pill">Inicio</a>
+                <a href="servicios.html" class="nav-link-pill">Servicios</a>
+                <a href="blog.html" class="nav-link-pill">Blog</a>
+                <a href="contacto.html" class="nav-link-pill">Contacto</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/+5216181499080" target="_blank" rel="noopener noreferrer" class="btn-primary hidden sm:inline-flex">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> Agendar Cita
+                </a>
+                <button id="mobile-toggle" class="md:hidden p-2 rounded-xl text-ink-muted hover:text-primary transition-colors" aria-label="Abrir menú">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="glass shadow-xl">
+        <div class="flex flex-col gap-2">
+            <a href="index.html" class="nav-link-pill px-3 py-2 rounded-xl hover:bg-primary/5">Inicio</a>
+            <a href="servicios.html" class="nav-link-pill px-3 py-2 rounded-xl hover:bg-primary/5">Servicios</a>
+            <a href="blog.html" class="nav-link-pill px-3 py-2 rounded-xl hover:bg-primary/5">Blog</a>
+            <a href="contacto.html" class="nav-link-pill px-3 py-2 rounded-xl hover:bg-primary/5">Contacto</a>
+            <a href="https://wa.me/+5216181499080" target="_blank" rel="noopener noreferrer" class="btn-primary justify-center mt-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i> Agendar Cita
+            </a>
+        </div>
+    </div>
+
+    <!-- Main 404 section -->
+    <main class="error-hero">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
+        <div class="relative z-10 text-center max-w-xl mx-auto px-4">
+
+            <!-- Floating helper badge -->
+            <div class="flex justify-center mb-6">
+                <div class="float-card">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                         style="background: linear-gradient(135deg,rgba(135,102,170,.15),rgba(202,142,190,.12));">
+                        <i data-lucide="map-pin-off" style="width:15px;height:15px;color:#8766aa;"></i>
+                    </div>
+                    <span style="font-size:13px;font-weight:600;color:#4e4d4d;">Página no encontrada</span>
+                </div>
+            </div>
+
+            <!-- Big 404 -->
+            <div class="display-404">404</div>
+
+            <!-- Message -->
+            <h1 class="text-2xl md:text-3xl font-bold text-ink mt-4 mb-3">
+                ¡Ups! Esta página no existe
+            </h1>
+            <p class="text-ink-muted text-base md:text-lg leading-relaxed mb-8 max-w-sm mx-auto">
+                Lo sentimos, la página que buscas no existe o fue movida. Regresa al inicio o explora nuestros servicios.
+            </p>
+
+            <!-- CTA buttons -->
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="index.html" class="btn-primary">
+                    <i data-lucide="home" class="w-4 h-4"></i> Ir al Inicio
+                </a>
+                <a href="contacto.html" class="btn-outline">
+                    <i data-lucide="mail" class="w-4 h-4"></i> Contacto
+                </a>
+            </div>
+
+            <!-- Quick links -->
+            <div class="mt-10 pt-8" style="border-top:1px solid rgba(135,102,170,.12);">
+                <p class="text-sm text-ink-muted mb-4 font-medium">O visita una de estas páginas:</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <a href="servicios.html" class="text-sm font-medium text-primary/80 hover:text-primary transition-colors px-4 py-2 rounded-full"
+                       style="background:rgba(135,102,170,.08);border:1px solid rgba(135,102,170,.15);">Servicios</a>
+                    <a href="blog.html" class="text-sm font-medium text-primary/80 hover:text-primary transition-colors px-4 py-2 rounded-full"
+                       style="background:rgba(135,102,170,.08);border:1px solid rgba(135,102,170,.15);">Blog</a>
+                    <a href="contacto.html" class="text-sm font-medium text-primary/80 hover:text-primary transition-colors px-4 py-2 rounded-full"
+                       style="background:rgba(135,102,170,.08);border:1px solid rgba(135,102,170,.15);">Contacto</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ══════════════════════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════════════════════ -->
+    <footer class="footer-dark">
+        <div class="w-full max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="grid md:grid-cols-2 gap-8 py-16 border-b border-white/10">
+                <div>
+                    <img src="assets/images/logo/logo-dark.webp" alt="Dra. Denise Medina Geriatra" loading="lazy" width="160" height="48" class="h-12 w-auto">
+                </div>
+                <div>
+                    <h3 class="text-xl lg:text-2xl font-bold leading-snug" style="color:rgba(255,255,255,.85);">
+                        Descubre la excelencia de la
+                        <span class="gradient-text"><strong>atención geriátrica en Durango</strong></span>
+                        con la Dra. Denise Medina Peralta
+                    </h3>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12 py-16">
+                <div>
+                    <h4 class="font-bold text-base mb-5" style="color:#fff;">Consultorio</h4>
+                    <ul class="space-y-2 text-sm" style="color:rgba(255,255,255,.5);">
+                        <li class="text-xs uppercase tracking-wider" style="color:rgba(255,255,255,.3);">Previa Cita</li>
+                        <li>Calle Gómez Palacio 502 Oriente</li>
+                        <li>Entre Laureano Roncal y Regato</li>
+                        <li>Zona Centro, Durango, Dgo.</li>
+                        <li>Código Postal 34000</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-base mb-5" style="color:#fff;">Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="servicios.html"  class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Servicios</a></li>
+                        <li><a href="blog.html"       class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Blog</a></li>
+                        <li><a href="contacto.html"   class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Contacto</a></li>
+                        <li><a href="privacidad.html" class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Política de Privacidad</a></li>
+                        <li><a href="terminos.html"   class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-base mb-5" style="color:#fff;">Contacto en redes</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li>
+                            <a href="https://wa.me/+5216181499080" target="_blank"
+                               class="flex items-center gap-3 transition-colors hover:text-white wpLunch"
+                               style="color:rgba(255,255,255,.5);">
+                                <span class="w-8 h-8 rounded-lg bg-green-500/15 flex items-center justify-center flex-shrink-0">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.47-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                </span>
+                                WhatsApp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/geriatria.durango" target="_blank" rel="noopener noreferrer nofollow"
+                               class="flex items-center gap-3 transition-colors hover:text-white"
+                               style="color:rgba(255,255,255,.5);">
+                                <span class="w-8 h-8 rounded-lg bg-blue-500/15 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="facebook" style="width:15px;height:15px;color:#60a5fa;"></i>
+                                </span>
+                                Facebook
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center py-6 border-t border-white/10 gap-3 text-xs"
+                 style="color:rgba(255,255,255,.35);">
+                <div class="space-y-1 text-center md:text-left">
+                    <p>&copy; <span id="footer-year"></span>. Por Dra. Denise Medina Peralta</p>
+                    <p>Aviso de Publicidad COFEPRIS: 2610012002A00010</p>
+                </div>
+                <div>
+                    Designed with ❤️ by
+                    <a href="https://doctordigital.mx/" class="font-semibold transition-colors hover:text-white"
+                       style="color:#ca8ebe;">DoctorDigital</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp CTA -->
+    <a href="https://wa.me/526181499080?text=Hola%20Dra.%20Denise%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." id="back-to-top" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+
+        }, { passive: true });
+
+        const toggle = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        toggle.addEventListener('click', e => { e.stopPropagation(); mobileMenu.classList.toggle('open'); });
+        document.addEventListener('click', e => { if (!mobileMenu.contains(e.target) && e.target !== toggle) mobileMenu.classList.remove('open'); });
+
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- COOKIE CONSENT -->
+    <div id="cc-banner" role="alertdialog" aria-labelledby="cc-title" aria-describedby="cc-desc" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(28px);width:calc(100% - 32px);max-width:800px;z-index:9998;background:rgba(255,255,255,0.90);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);border:1px solid rgba(255,255,255,0.92);border-radius:22px;box-shadow:0 8px 40px rgba(135,102,170,0.22),0 2px 10px rgba(0,0,0,0.08);padding:18px 22px;transition:opacity .42s cubic-bezier(.4,0,.2,1),transform .42s cubic-bezier(.4,0,.2,1);opacity:0;pointer-events:none;">
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;">
+            <div style="flex:1;min-width:220px;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8766aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01M16 15.5v.01M12 12v.01"/></svg><span id="cc-title" style="font-weight:700;font-size:0.875rem;color:#4e4d4d;">Usamos cookies</span></div><p id="cc-desc" style="font-size:0.76rem;color:#7a7979;line-height:1.55;margin:0;">Utilizamos cookies propias y de terceros para mejorar tu experiencia y medir el tráfico. Consulta nuestra <a href="privacidad.html" style="color:#8766aa;font-weight:600;text-decoration:underline;">Política de Privacidad</a>.</p></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;"><button onclick="CCRejectOptional()" style="padding:8px 15px;border-radius:50rem;border:1.5px solid rgba(135,102,170,0.40);background:transparent;color:#8766aa;font-size:0.775rem;font-weight:600;cursor:pointer;white-space:nowrap;font-family:inherit;transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='#8766aa';this.style.background='rgba(135,102,170,0.05)'" onmouseout="this.style.borderColor='rgba(135,102,170,0.40)';this.style.background='transparent'">Solo necesarias</button><button onclick="CCShowSettings()" style="padding:8px 15px;border-radius:50rem;border:1.5px solid rgba(135,102,170,0.25);background:rgba(135,102,170,0.06);color:#8766aa;font-size:0.775rem;font-weight:600;cursor:pointer;white-space:nowrap;font-family:inherit;transition:background .2s,border-color .2s;" onmouseover="this.style.background='rgba(135,102,170,0.11)';this.style.borderColor='rgba(135,102,170,0.40)'" onmouseout="this.style.background='rgba(135,102,170,0.06)';this.style.borderColor='rgba(135,102,170,0.25)'">Personalizar</button><button onclick="CCAcceptAll()" style="padding:8px 18px;border-radius:50rem;border:none;background:linear-gradient(135deg,#8766aa,#ca8ebe);color:#fff;font-size:0.775rem;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit;box-shadow:0 4px 14px rgba(135,102,170,0.38);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 20px rgba(135,102,170,0.48)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(135,102,170,0.38)'">Aceptar todo</button></div>
+        </div>
+    </div>
+    <div id="cc-overlay" style="position:fixed;inset:0;z-index:9999;background:rgba(25,15,45,0.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s ease;">
+        <div id="cc-modal" role="dialog" aria-modal="true" aria-labelledby="cc-modal-title" style="width:100%;max-width:490px;max-height:90vh;overflow-y:auto;background:rgba(255,255,255,0.97);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1.5px solid rgba(255,255,255,0.92);border-radius:28px;box-shadow:0 24px 64px rgba(135,102,170,0.32),0 4px 20px rgba(0,0,0,0.12);padding:30px 28px;transform:translateY(22px) scale(0.97);transition:transform .32s cubic-bezier(.4,0,.2,1);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:9px;"><div style="width:36px;height:36px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(135,102,170,.12),rgba(202,142,190,.15));"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8766aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01M16 15.5v.01M12 12v.01"/></svg></div><h2 id="cc-modal-title" style="font-size:1.05rem;font-weight:700;color:#4e4d4d;margin:0;">Preferencias de cookies</h2></div><button onclick="CCHideSettings()" aria-label="Cerrar" style="width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(0,0,0,0.10);background:rgba(0,0,0,0.04);color:#7a7979;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;font-family:inherit;">&#x2715;</button></div>
+            <p style="font-size:0.78rem;color:#7a7979;line-height:1.6;margin-bottom:20px;">Personaliza las cookies que deseas permitir. Las <strong style="color:#4e4d4d;">cookies necesarias</strong> siempre están activas.</p>
+            <div style="border:1.5px solid rgba(135,102,170,0.14);border-radius:16px;padding:16px 18px;margin-bottom:10px;background:rgba(135,102,170,0.03);"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;"><div style="display:flex;align-items:center;gap:8px;"><span aria-hidden="true">&#x1F512;</span><span style="font-weight:700;font-size:0.87rem;color:#4e4d4d;">Cookies Necesarias</span></div><label class="cc-toggle" aria-label="Siempre activas"><input type="checkbox" checked disabled><span class="cc-toggle-slider"></span></label></div><p style="font-size:0.74rem;color:#7a7979;margin:0;line-height:1.55;">Imprescindibles para el funcionamiento del sitio. <strong style="color:#8766aa;">Siempre activas.</strong></p><p style="font-size:0.69rem;color:#a88bc5;margin-top:5px;">Vigencia: sesión &nbsp;·&nbsp; Proveedor: sitio propio</p></div>
+            <div style="border:1.5px solid rgba(135,102,170,0.14);border-radius:16px;padding:16px 18px;margin-bottom:10px;background:rgba(135,102,170,0.03);"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;"><div style="display:flex;align-items:center;gap:8px;"><span aria-hidden="true">&#x1F4CA;</span><span style="font-weight:700;font-size:0.87rem;color:#4e4d4d;">Cookies Analíticas</span></div><label class="cc-toggle" aria-label="Activar cookies analíticas"><input type="checkbox" id="cc-toggle-analytics"><span class="cc-toggle-slider"></span></label></div><p style="font-size:0.74rem;color:#7a7979;margin:0;line-height:1.55;">Google Analytics (G-R7GFH5G7JB). La información es anónima.</p><p style="font-size:0.69rem;color:#a88bc5;margin-top:5px;">Vigencia: hasta 2 años &nbsp;·&nbsp; Proveedor: Google LLC</p></div>
+            <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;"><button onclick="CCAcceptAll()" style="flex:1;min-width:120px;padding:10px 16px;border-radius:50rem;border:none;background:linear-gradient(135deg,#8766aa,#ca8ebe);color:#fff;font-size:0.82rem;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 14px rgba(135,102,170,0.35);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 20px rgba(135,102,170,0.45)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(135,102,170,0.35)'">Aceptar todo</button><button onclick="CCSavePreferences()" style="flex:1;min-width:120px;padding:10px 16px;border-radius:50rem;border:1.5px solid rgba(135,102,170,0.45);background:transparent;color:#8766aa;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s;" onmouseover="this.style.background='rgba(135,102,170,0.06)';this.style.borderColor='#8766aa'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(135,102,170,0.45)'">Guardar preferencias</button></div>
+            <p style="text-align:center;margin-top:14px;font-size:0.7rem;color:#7a7979;"><a href="privacidad.html" style="color:#8766aa;text-decoration:none;">Política de Privacidad</a> &nbsp;·&nbsp; <a href="terminos.html" style="color:#8766aa;text-decoration:none;">Términos y Condiciones</a></p>
+        </div>
+    </div>
+    <style>.cc-toggle{position:relative;display:inline-block;width:42px;height:23px;flex-shrink:0}.cc-toggle input{opacity:0;width:0;height:0}.cc-toggle-slider{position:absolute;cursor:pointer;inset:0;background:rgba(0,0,0,0.15);border-radius:50px;transition:background .22s}.cc-toggle-slider:before{content:'';position:absolute;width:17px;height:17px;border-radius:50%;background:#fff;left:3px;bottom:3px;box-shadow:0 1px 4px rgba(0,0,0,0.22);transition:transform .22s}.cc-toggle input:checked+.cc-toggle-slider{background:linear-gradient(135deg,#8766aa,#ca8ebe)}.cc-toggle input:checked+.cc-toggle-slider:before{transform:translateX(19px)}.cc-toggle input:disabled+.cc-toggle-slider{cursor:not-allowed;opacity:0.7}</style>
+    <script>(function(){var CC_KEY='gdm_cookie_consent',CC_VER='1';function g(){try{var d=JSON.parse(localStorage.getItem(CC_KEY));if(d&&d.v===CC_VER)return d;}catch(e){}return null;}function a(c){if(typeof gtag==='function')gtag('consent','update',{'analytics_storage':c.analytics?'granted':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});}function s(c){c.v=CC_VER;c.ts=Date.now();localStorage.setItem(CC_KEY,JSON.stringify(c));a(c);hb();hs();}function hb(){var b=document.getElementById('cc-banner');if(!b)return;b.style.opacity='0';b.style.transform='translateX(-50%) translateY(28px)';setTimeout(function(){b.style.pointerEvents='none';},420);}function sb(){var b=document.getElementById('cc-banner');if(!b)return;b.style.pointerEvents='auto';b.offsetHeight;b.style.opacity='1';b.style.transform='translateX(-50%) translateY(0)';}function hs(){var o=document.getElementById('cc-overlay'),m=document.getElementById('cc-modal');if(!o||!m)return;o.style.opacity='0';m.style.transform='translateY(22px) scale(0.97)';setTimeout(function(){o.style.pointerEvents='none';},300);}window.CCAcceptAll=function(){s({necessary:true,analytics:true});};window.CCRejectOptional=function(){s({necessary:true,analytics:false});};window.CCSavePreferences=function(){var el=document.getElementById('cc-toggle-analytics');s({necessary:true,analytics:el?el.checked:false});};window.CCShowSettings=function(){var c=g(),el=document.getElementById('cc-toggle-analytics');if(el)el.checked=c?!!c.analytics:true;var o=document.getElementById('cc-overlay'),m=document.getElementById('cc-modal');if(!o||!m)return;o.style.pointerEvents='auto';o.offsetHeight;o.style.opacity='1';m.style.transform='translateY(0) scale(1)';};window.CCHideSettings=hs;function init(){var c=g();if(!c){setTimeout(sb,900);}else{a(c);}var o=document.getElementById('cc-overlay');if(o)o.addEventListener('click',function(e){if(e.target===o)hs();});document.addEventListener('keydown',function(e){if(e.key==='Escape')hs();});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}})();</script>
+
+</body>
+</html>

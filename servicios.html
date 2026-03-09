@@ -1,0 +1,919 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Cookie Consent Mode v2 (must precede gtag) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        (function(){
+            var _cc = null;
+            try { _cc = JSON.parse(localStorage.getItem('gdm_cookie_consent')); } catch(e) {}
+            gtag('consent', 'default', {
+                'analytics_storage': (_cc && _cc.analytics) ? 'granted' : 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': (_cc && _cc.v === '1') ? 0 : 500
+            });
+        })();
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7GFH5G7JB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-R7GFH5G7JB');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Servicios de geriatría en Durango: evaluación integral, manejo de enfermedades crónicas, atención a domicilio y más. Dra. Denise Medina Peralta, médico geriatra.">
+    <meta name="keywords" content="servicios geriatría Durango, médico geriatra a domicilio, evaluación geriátrica, adultos mayores Durango">
+    <meta name="author" content="Dra. Denise Medina Peralta">
+    <meta name="robots" content="index, follow">
+    <title>Servicios de Geriatría en Durango | Dra. Denise Medina Peralta</title>
+
+    <!-- Open Graph / Social Share -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dra. Denise Medina Peralta | Geriatra Durango">
+    <meta property="og:url" content="https://dradenisemedina.com/servicios.html">
+    <meta property="og:title" content="Servicios de Geriatría en Durango | Dra. Denise Medina Peralta">
+    <meta property="og:description" content="Servicios de geriatría en Durango: evaluación integral, manejo de enfermedades crónicas, atención a domicilio y más. Dra. Denise Medina Peralta, médico geriatra.">
+    <meta property="og:image" content="https://dradenisemedina.com/assets/images/social-share-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Servicios de Geriatría en Durango | Dra. Denise Medina Peralta">
+    <meta name="twitter:description" content="Servicios de geriatría en Durango: evaluación integral, manejo de enfermedades crónicas, atención a domicilio y más. Dra. Denise Medina Peralta, médico geriatra.">
+    <meta name="twitter:image" content="https://dradenisemedina.com/assets/images/social-share-cover.jpg">
+    <link rel="canonical" href="https://dradenisemedina.com/servicios.html">
+
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary:   { DEFAULT: '#8766aa', dark: '#6b4f8a', light: '#a88bc5' },
+                        secondary: { DEFAULT: '#ca8ebe', light: '#deb8d9' },
+                        ink:       { DEFAULT: '#4e4d4d', muted: '#7a7979' },
+                    },
+                    fontFamily: { sans: ['DM Sans', 'sans-serif'] },
+                    borderRadius: { '4xl': '2rem', '5xl': '2.5rem' },
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <!-- Axios (wpLunch) -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; color: #4e4d4d; overflow-x: hidden; background: #faf8ff; }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #f5f0ff 0%, #fdf0fb 30%, #fff3f8 60%, #f0ebff 100%);
+            background-size: 300% 300%;
+            animation: hueShift 18s ease infinite;
+        }
+        @keyframes hueShift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .orb { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.28; pointer-events: none; will-change: transform; }
+        .orb-1 { width: 480px; height: 480px; background: radial-gradient(circle, #8766aa, transparent); top: -100px; right: -60px; animation: floatA 22s ease-in-out infinite; }
+        .orb-2 { width: 360px; height: 360px; background: radial-gradient(circle, #ca8ebe, transparent); bottom: -40px; left: -80px; animation: floatB 28s ease-in-out infinite; }
+        @keyframes floatA { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(-50px,40px) scale(1.08)} 66%{transform:translate(30px,-20px) scale(0.93)} }
+        @keyframes floatB { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(44px,-32px) scale(1.05)} 66%{transform:translate(-22px,48px) scale(0.96)} }
+
+        .glass { background: rgba(255,255,255,0.58); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); border: 1px solid rgba(255,255,255,0.65); }
+        .glass-card { background: rgba(255,255,255,0.72); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.82); }
+        .glass-subtle { background: rgba(255,255,255,0.35); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.45); }
+
+        .navbar-island {
+            position: fixed; top: 18px; left: 50%; transform: translateX(-50%);
+            z-index: 1000; width: calc(100% - 32px); max-width: 920px;
+            background: rgba(255,255,255,0.42); backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px);
+            border: 1px solid rgba(255,255,255,0.55); border-radius: 9999px; padding: 10px 20px;
+            box-shadow: 0 8px 32px rgba(135,102,170,0.10), 0 2px 8px rgba(0,0,0,0.04);
+            transition: box-shadow .35s ease, background .35s ease;
+        }
+        .navbar-island.scrolled { background: rgba(255,255,255,0.68); box-shadow: 0 12px 42px rgba(135,102,170,0.22), 0 4px 14px rgba(0,0,0,0.09); }
+
+        .nav-link-pill { position: relative; font-size: 14px; font-weight: 500; color: #4e4d4d; padding: 5px 2px; text-decoration: none; transition: color .25s; }
+        .nav-link-pill::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #8766aa, #ca8ebe); transition: width .3s ease; }
+        .nav-link-pill:hover, .nav-link-pill.active { color: #8766aa; }
+        .nav-link-pill:hover::after, .nav-link-pill.active::after { width: 100%; }
+
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: linear-gradient(135deg, #8766aa 0%, #ca8ebe 100%);
+            color: #fff; border-radius: 9999px; padding: 13px 28px; font-weight: 600; font-size: 14px;
+            text-decoration: none; transition: transform .25s ease, box-shadow .25s ease;
+            box-shadow: 0 4px 20px rgba(135,102,170,0.32); border: none; cursor: pointer; line-height: 1;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(135,102,170,0.48); color: #fff; text-decoration: none; }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: rgba(255,255,255,0.75); color: #8766aa; border: 1.5px solid rgba(135,102,170,0.35);
+            border-radius: 9999px; padding: 12px 26px; font-weight: 600; font-size: 14px;
+            text-decoration: none; transition: all .25s ease; backdrop-filter: blur(10px); line-height: 1;
+        }
+        .btn-outline:hover { background: #8766aa; color: #fff; border-color: #8766aa; transform: translateY(-2px); box-shadow: 0 6px 22px rgba(135,102,170,0.35); text-decoration: none; }
+
+        .section-tag {
+            display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700;
+            letter-spacing: .1em; text-transform: uppercase; color: #8766aa;
+            background: linear-gradient(135deg, rgba(135,102,170,.1), rgba(202,142,190,.12));
+            border: 1px solid rgba(135,102,170,.2); border-radius: 9999px; padding: 5px 14px; margin-bottom: 14px;
+        }
+        .gradient-text { background: linear-gradient(135deg, #8766aa 0%, #ca8ebe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        #preloader { position: fixed; inset: 0; z-index: 9999; background: linear-gradient(135deg, #f5f0ff, #fdf0fb); display: flex; align-items: center; justify-content: center; transition: opacity .5s ease; }
+        .preloader-ring { width: 52px; height: 52px; border: 3px solid rgba(135,102,170,.18); border-top-color: #8766aa; border-radius: 50%; animation: spin .75s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        #mobile-menu { display: none; position: fixed; top: 82px; left: 16px; right: 16px; z-index: 999; border-radius: 22px; padding: 22px 24px; animation: slideDown .28s ease; }
+        #mobile-menu.open { display: block; }
+        @keyframes slideDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+
+        /* Page hero banner */
+        .page-hero {
+            background: linear-gradient(135deg, #f5f0ff 0%, #fdf0fb 50%, #f0ebff 100%);
+            position: relative; overflow: hidden; padding: 160px 0 80px;
+        }
+
+        /* Service cards */
+        .service-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 52px rgba(135,102,170,.18) !important; }
+
+        #back-to-top {
+            position: fixed; bottom: 28px; right: 28px; width: 56px; height: 56px; border-radius: 50%;
+            background: #25D366; color: #fff;
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            opacity: 1; transform: translateY(0); animation: waPulse 2s ease-out infinite;
+            box-shadow: 0 4px 18px rgba(37,211,102,.45); z-index: 500; text-decoration: none;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+        @keyframes waPulse {
+            0%   { box-shadow: 0 4px 18px rgba(37,211,102,.45), 0 0 0 0   rgba(37,211,102,.55); }
+            70%  { box-shadow: 0 4px 18px rgba(37,211,102,.45), 0 0 0 18px rgba(37,211,102,0);  }
+            100% { box-shadow: 0 4px 18px rgba(37,211,102,.45), 0 0 0 0   rgba(37,211,102,0);   }
+        }
+
+        .reveal { opacity: 0; transform: translateY(28px); }
+        .section-tinted { background: linear-gradient(135deg, rgba(135,102,170,.05) 0%, rgba(202,142,190,.06) 100%); }
+        .footer-dark { background: linear-gradient(45deg, #000000, #000000, #140914, #111111); }
+
+        @media (max-width: 767px) {
+            .navbar-island { border-radius: 22px; padding: 10px 16px; }
+            .orb { opacity: 0; }
+            .page-hero { padding: 130px 0 60px; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "MedicalBusiness",
+          "name": "Consultorio Geriátrico — Dra. Denise Medina Peralta",
+          "url": "https://dradenisemedina.com/servicios.html",
+          "medicalSpecialty": "Geriatrics",
+          "telephone": "+526181499080",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle Gómez Palacio 502 Oriente",
+            "addressLocality": "Durango",
+            "addressRegion": "Durango",
+            "postalCode": "34000",
+            "addressCountry": "MX"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios Geriátricos",
+            "itemListElement": [
+              {"@type": "Offer", "itemOffered": {"@type": "MedicalTherapy", "name": "Evaluación Geriátrica Integral"}},
+              {"@type": "Offer", "itemOffered": {"@type": "MedicalTherapy", "name": "Atención Geriátrica a Domicilio"}},
+              {"@type": "Offer", "itemOffered": {"@type": "MedicalTherapy", "name": "Consulta Geriátrica Virtual"}},
+              {"@type": "Offer", "itemOffered": {"@type": "MedicalTherapy", "name": "Manejo de Enfermedades Crónicas"}},
+              {"@type": "Offer", "itemOffered": {"@type": "MedicalTherapy", "name": "Revisión y Ajuste de Medicamentos"}},
+              {"@type": "Offer", "itemOffered": {"@type": "MedicalTherapy", "name": "Evaluación de Deterioro Cognitivo"}},
+              {"@type": "Offer", "itemOffered": {"@type": "MedicalTherapy", "name": "Atención a Demencias y Alzheimer"}}
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://dradenisemedina.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://dradenisemedina.com/servicios.html"}
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body class="gradient-bg">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-ring"></div>
+    </div>
+
+    <!-- Navbar Island -->
+    <nav class="navbar-island" id="navbar" aria-label="Navegación principal">
+        <div class="flex items-center justify-between gap-4">
+            <a href="index.html" class="flex-shrink-0">
+                <img src="assets/images/logo/logo.webp" alt="Dra. Denise Medina Geriatra Durango" width="144" height="36" class="h-9 w-auto">
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html"     class="nav-link-pill">Inicio</a>
+                <a href="servicios.html" class="nav-link-pill active">Servicios</a>
+                <a href="blog.html"      class="nav-link-pill">Blog</a>
+                <a href="contacto.html"  class="nav-link-pill">Contacto</a>
+            </div>
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/+5216181499080" target="_blank"
+                   class="hidden md:inline-flex btn-primary text-xs py-2.5 px-5 wpLunch">
+                    <i data-lucide="phone" style="width:14px;height:14px;"></i>
+                    Agendar Cita
+                </a>
+                <button id="menu-toggle" aria-label="Abrir menú"
+                        class="md:hidden p-2.5 rounded-2xl glass-subtle transition-colors hover:bg-white/70">
+                    <i data-lucide="menu" id="menu-icon" style="width:18px;height:18px;color:#8766aa;"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu" class="glass-card">
+        <div class="flex flex-col gap-3">
+            <a href="index.html"     class="nav-link-pill text-base">Inicio</a>
+            <a href="servicios.html" class="nav-link-pill active text-base font-semibold">Servicios</a>
+            <a href="blog.html"      class="nav-link-pill text-base">Blog</a>
+            <a href="contacto.html"  class="nav-link-pill text-base">Contacto</a>
+            <a href="https://wa.me/+5216181499080" target="_blank"
+               class="btn-primary justify-center mt-1 wpLunch">
+                <i data-lucide="phone" style="width:15px;height:15px;"></i>
+                Agendar Cita
+            </a>
+        </div>
+    </div>
+
+    <main id="main-content">
+
+    <!-- ══════════════════════════════════════════════
+         PAGE HERO BANNER
+    ══════════════════════════════════════════════ -->
+    <section class="page-hero">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+
+        <div class="w-full max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="max-w-2xl">
+                <div class="section-tag reveal">
+                    <i data-lucide="stethoscope" style="width:13px;height:13px;"></i>
+                    Geriatría · Durango
+                </div>
+                <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-5 reveal" style="color:#4e4d4d; letter-spacing:-0.03em;">
+                    Servicios de <span class="gradient-text">Geriatría</span>
+                </h1>
+                <p class="text-base lg:text-lg leading-relaxed mb-6 reveal" style="color:#7a7979;">
+                    Atención médica integral y personalizada para el cuidado de adultos mayores
+                    <strong style="color:#4e4d4d;">en consultorio y a domicilio en Durango.</strong>
+                </p>
+                <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm reveal" style="color:#7a7979;">
+                    <a href="index.html" style="color:#8766aa;" class="hover:underline">Inicio</a>
+                    <i data-lucide="chevron-right" style="width:14px;height:14px;color:#a88bc5;"></i>
+                    <span style="color:#4e4d4d;font-weight:600;">Servicios</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         ¿QUÉ ES UN MÉDICO GERIATRA?
+    ══════════════════════════════════════════════ -->
+    <section class="py-24 relative overflow-hidden">
+        <!-- Decorative image: pegada al bottom, columna izquierda del contenido -->
+        <img src="assets/images/servicios.webp"
+             alt="" aria-hidden="true"
+             class="hidden lg:block"
+             style="position:absolute;bottom:0;left:50%;transform:translateX(-100%);height:90%;width:auto;object-fit:contain;object-position:bottom right;pointer-events:none;z-index:0;">
+        <div class="w-full max-w-7xl mx-auto px-6 lg:px-10" style="position:relative;z-index:1;">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Empty left column -->
+                <div class="hidden lg:block"></div>
+
+                <!-- Text -->
+                <div class="reveal">
+                    <div class="section-tag">
+                        <i data-lucide="user-check" style="width:13px;height:13px;"></i>
+                        ¿Qué hacemos?
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-4" style="color:#4e4d4d; letter-spacing:-0.03em;">
+                        ¿Qué es un médico <span class="gradient-text">Geriatra</span>?
+                    </h2>
+                    <p class="font-semibold mb-4 text-base" style="color:#8766aa;">
+                        El médico Geriatra es el especialista en la atención integral de los adultos mayores.
+                    </p>
+                    <p class="leading-relaxed text-sm lg:text-base mb-6" style="color:#7a7979;">
+                        Es un profesional especializado en el cuidado de la salud y el bienestar de los adultos
+                        mayores, ofreciendo atención médica integral y personalizada para promover un
+                        <strong style="color:#4e4d4d;">envejecimiento saludable</strong> y mejorar la calidad
+                        de vida en la tercera edad.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="glass px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5" style="color:#4e4d4d;">
+                            <i data-lucide="check-circle" style="width:13px;height:13px;color:#8766aa;"></i>
+                            Atención Personalizada
+                        </span>
+                        <span class="glass px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5" style="color:#4e4d4d;">
+                            <i data-lucide="check-circle" style="width:13px;height:13px;color:#8766aa;"></i>
+                            Enfoque Integral
+                        </span>
+                        <span class="glass px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5" style="color:#4e4d4d;">
+                            <i data-lucide="check-circle" style="width:13px;height:13px;color:#8766aa;"></i>
+                            Municipios de Durango
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         SERVICIOS DE GERIATRÍA
+    ══════════════════════════════════════════════ -->
+    <section class="py-24 section-tinted">
+        <div class="w-full max-w-7xl mx-auto px-6 lg:px-10">
+
+            <div class="text-center mb-16 reveal">
+                <div class="section-tag" style="margin: 0 auto 14px;">
+                    <i data-lucide="layout-grid" style="width:13px;height:13px;"></i>
+                    Servicios
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4" style="color:#4e4d4d; letter-spacing:-0.03em;">
+                    Servicios de Geriatría
+                </h2>
+                <p class="max-w-2xl mx-auto text-sm lg:text-base" style="color:#7a7979;">
+                    Descubre nuestros servicios especializados en
+                    <strong style="color:#4e4d4d;">cuidado geriátrico para adultos mayores en Durango</strong>.
+                    Ofrecemos atención integral y personalizada para mejorar la calidad de vida en la tercera edad.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+
+                <!-- Card 1 -->
+                <div class="service-card glass-card rounded-4xl p-8 shadow-lg reveal">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                         style="background:linear-gradient(135deg,rgba(135,102,170,.12),rgba(202,142,190,.14));">
+                        <i data-lucide="heart-pulse" style="width:26px;height:26px;color:#8766aa;"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-4" style="color:#4e4d4d;">Evaluación Integral de Salud</h3>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-start gap-2 text-sm" style="color:#7a7979;">
+                            <i data-lucide="check" style="width:14px;height:14px;color:#8766aa;flex-shrink:0;margin-top:2px;"></i>
+                            Evaluación integral de salud física y mental.
+                        </li>
+                        <li class="flex items-start gap-2 text-sm" style="color:#7a7979;">
+                            <i data-lucide="check" style="width:14px;height:14px;color:#8766aa;flex-shrink:0;margin-top:2px;"></i>
+                            Manejo y control de enfermedades crónicas para un envejecimiento saludable.
+                        </li>
+                        <li class="flex items-start gap-2 text-sm" style="color:#7a7979;">
+                            <i data-lucide="check" style="width:14px;height:14px;color:#8766aa;flex-shrink:0;margin-top:2px;"></i>
+                            Revisión y ajuste de medicamentos para un cuidado personalizado.
+                        </li>
+                        <li class="flex items-start gap-2 text-sm" style="color:#7a7979;">
+                            <i data-lucide="check" style="width:14px;height:14px;color:#8766aa;flex-shrink:0;margin-top:2px;"></i>
+                            Servicio en consultorio de primer nivel.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card glass-card rounded-4xl p-8 shadow-lg reveal">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                         style="background:linear-gradient(135deg,rgba(202,142,190,.14),rgba(135,102,170,.12));">
+                        <i data-lucide="home" style="width:26px;height:26px;color:#ca8ebe;"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-4" style="color:#4e4d4d;">Atención a Domicilio</h3>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-start gap-2 text-sm" style="color:#7a7979;">
+                            <i data-lucide="check" style="width:14px;height:14px;color:#ca8ebe;flex-shrink:0;margin-top:2px;"></i>
+                            Apoyo en problemas de salud mental y trastornos cognitivos.
+                        </li>
+                        <li class="flex items-start gap-2 text-sm" style="color:#7a7979;">
+                            <i data-lucide="check" style="width:14px;height:14px;color:#ca8ebe;flex-shrink:0;margin-top:2px;"></i>
+                            Coordinación del cuidado con un enfoque integral.
+                        </li>
+                        <li class="flex items-start gap-2 text-sm" style="color:#7a7979;">
+                            <i data-lucide="check" style="width:14px;height:14px;color:#ca8ebe;flex-shrink:0;margin-top:2px;"></i>
+                            Educación y consejería para pacientes y familias.
+                        </li>
+                        <li class="flex items-start gap-2 text-sm" style="color:#7a7979;">
+                            <i data-lucide="check" style="width:14px;height:14px;color:#ca8ebe;flex-shrink:0;margin-top:2px;"></i>
+                            Servicio a domicilio incluyendo municipios de Durango.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: CTA -->
+                <div class="service-card rounded-4xl p-8 shadow-xl reveal md:col-span-2 lg:col-span-1 flex flex-col justify-between"
+                     style="background:linear-gradient(135deg,#8766aa 0%,#ca8ebe 100%);">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-5">
+                            <i data-lucide="calendar-check" style="width:26px;height:26px;color:#fff;"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-white">¿Necesitas una consulta?</h3>
+                        <p class="text-white/85 text-sm leading-relaxed mb-6">
+                            Agenda tu cita por WhatsApp y recibe atención especializada
+                            <strong class="text-white">en tu consultorio o en la comodidad de tu hogar.</strong>
+                        </p>
+                    </div>
+                    <a href="https://wa.me/+5216181499080" target="_blank"
+                       class="inline-flex items-center gap-2 bg-white font-semibold px-6 py-3.5 rounded-full shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl text-sm wpLunch"
+                       style="color:#8766aa;">
+                        <i data-lucide="message-circle" style="width:17px;height:17px;"></i>
+                        Agendar por WhatsApp
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         DETALLE DE SERVICIOS
+    ══════════════════════════════════════════════ -->
+    <section class="py-24">
+        <div class="w-full max-w-7xl mx-auto px-6 lg:px-10">
+
+            <div class="text-center mb-16 reveal">
+                <div class="section-tag" style="margin: 0 auto 14px;">
+                    <i data-lucide="file-text" style="width:13px;height:13px;"></i>
+                    Más información
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4" style="color:#4e4d4d; letter-spacing:-0.03em;">
+                    ¿Qué incluye cada <span class="gradient-text">servicio</span>?
+                </h2>
+                <p class="max-w-2xl mx-auto text-sm lg:text-base" style="color:#7a7979;">
+                    Conoce a detalle lo que ofrece cada área de atención de la
+                    <strong style="color:#4e4d4d;">Dra. Denise Medina Peralta</strong>,
+                    <strong style="color:#4e4d4d;">geriatra en Durango</strong>.
+                </p>
+            </div>
+
+            <div class="space-y-10">
+
+                <!-- Detalle 1: Evaluación Integral -->
+                <div class="glass-card rounded-4xl p-10 shadow-lg reveal">
+                    <div class="grid lg:grid-cols-5 gap-8 items-start">
+                        <div class="lg:col-span-2">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+                                 style="background:linear-gradient(135deg,rgba(135,102,170,.12),rgba(202,142,190,.14));">
+                                <i data-lucide="heart-pulse" style="width:26px;height:26px;color:#8766aa;"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2" style="color:#4e4d4d;">
+                                Evaluación Geriátrica Integral en Durango
+                            </h3>
+                            <p class="text-sm font-semibold" style="color:#8766aa;">Presencial · Consultorio</p>
+                        </div>
+                        <div class="lg:col-span-3 space-y-4 text-sm lg:text-base leading-relaxed" style="color:#7a7979;">
+                            <p>
+                                La <strong style="color:#4e4d4d;">evaluación geriátrica integral</strong> es el punto de partida
+                                para un <strong style="color:#4e4d4d;">envejecimiento saludable</strong>. Durante la consulta, la
+                                <strong style="color:#4e4d4d;">Dra. Denise Medina Peralta</strong> realiza una valoración completa
+                                del estado físico, mental, funcional y social del <strong style="color:#4e4d4d;">adulto mayor</strong>,
+                                identificando riesgos antes de que se conviertan en problemas graves.
+                            </p>
+                            <p>
+                                Se revisa y ajusta el <strong style="color:#4e4d4d;">manejo de medicamentos</strong> para evitar
+                                interacciones y efectos adversos, uno de los problemas más frecuentes y prevenibles en la
+                                <strong style="color:#4e4d4d;">tercera edad</strong>. También se establece un plan personalizado
+                                para el <strong style="color:#4e4d4d;">control de enfermedades crónicas</strong> como diabetes,
+                                hipertensión, osteoporosis y deterioro cognitivo.
+                            </p>
+                            <p>
+                                El consultorio está ubicado en el <strong style="color:#4e4d4d;">centro de Durango</strong>,
+                                con atención <strong style="color:#4e4d4d;">previa cita</strong> para garantizar el tiempo y
+                                la privacidad que cada paciente merece.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detalle 2: Atención a Domicilio -->
+                <div class="glass-card rounded-4xl p-10 shadow-lg reveal">
+                    <div class="grid lg:grid-cols-5 gap-8 items-start">
+                        <div class="lg:col-span-2">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+                                 style="background:linear-gradient(135deg,rgba(202,142,190,.14),rgba(135,102,170,.12));">
+                                <i data-lucide="home" style="width:26px;height:26px;color:#ca8ebe;"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2" style="color:#4e4d4d;">
+                                Médico Geriatra a Domicilio en Durango
+                            </h3>
+                            <p class="text-sm font-semibold" style="color:#ca8ebe;">Domicilio · Municipios de Durango</p>
+                        </div>
+                        <div class="lg:col-span-3 space-y-4 text-sm lg:text-base leading-relaxed" style="color:#7a7979;">
+                            <p>
+                                Para adultos mayores con dificultades de movilidad o que requieren valoración en su
+                                entorno habitual, la <strong style="color:#4e4d4d;">Dra. Denise Medina</strong> ofrece
+                                <strong style="color:#4e4d4d;">atención geriátrica a domicilio</strong> en la ciudad de
+                                Durango y <strong style="color:#4e4d4d;">municipios del estado</strong>. Atender al paciente
+                                en su propio espacio aporta información clínica valiosa que no siempre es visible en consultorio.
+                            </p>
+                            <p>
+                                El servicio incluye apoyo en <strong style="color:#4e4d4d;">problemas de salud mental</strong>
+                                y <strong style="color:#4e4d4d;">trastornos cognitivos</strong> como la demencia y el Alzheimer,
+                                con orientación directa a la familia sobre cómo acompañar y cuidar al
+                                <strong style="color:#4e4d4d;">adulto mayor</strong> de forma segura. La
+                                <strong style="color:#4e4d4d;">coordinación del cuidado</strong> entre médicos, cuidadores
+                                y familiares es parte esencial de este enfoque integral.
+                            </p>
+                            <p>
+                                Cada visita incluye <strong style="color:#4e4d4d;">educación y consejería para pacientes
+                                y familias</strong>: entender la condición del adulto mayor reduce la angustia familiar
+                                y mejora los resultados clínicos a largo plazo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detalle 3: Salud Mental y Cognitiva -->
+                <div class="glass-card rounded-4xl p-10 shadow-lg reveal">
+                    <div class="grid lg:grid-cols-5 gap-8 items-start">
+                        <div class="lg:col-span-2">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+                                 style="background:linear-gradient(135deg,rgba(135,102,170,.12),rgba(202,142,190,.14));">
+                                <i data-lucide="brain" style="width:26px;height:26px;color:#8766aa;"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2" style="color:#4e4d4d;">
+                                Salud Mental y Cognitiva del Adulto Mayor
+                            </h3>
+                            <p class="text-sm font-semibold" style="color:#8766aa;">Consultorio · Domicilio</p>
+                        </div>
+                        <div class="lg:col-span-3 space-y-4 text-sm lg:text-base leading-relaxed" style="color:#7a7979;">
+                            <p>
+                                El <strong style="color:#4e4d4d;">deterioro cognitivo</strong> y los
+                                <strong style="color:#4e4d4d;">trastornos de salud mental en la tercera edad</strong>
+                                —como la depresión, la ansiedad, el Alzheimer y otras demencias— requieren un enfoque
+                                especializado que va más allá de la medicina general.
+                            </p>
+                            <p>
+                                La <strong style="color:#4e4d4d;">Dra. Denise Medina</strong> realiza evaluaciones del
+                                estado cognitivo para detectar cambios tempranos, establecer diagnósticos precisos y
+                                diseñar un <strong style="color:#4e4d4d;">plan de tratamiento para el adulto mayor</strong>
+                                que mejore su calidad de vida y acompañe a su familia en el proceso de cuidado.
+                            </p>
+                            <p>
+                                Un diagnóstico oportuno del <strong style="color:#4e4d4d;">deterioro cognitivo en adultos
+                                mayores</strong> puede frenar su progresión y preservar por más tiempo la autonomía
+                                e independencia del paciente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detalle 4: Manejo de Medicamentos -->
+                <div class="glass-card rounded-4xl p-10 shadow-lg reveal">
+                    <div class="grid lg:grid-cols-5 gap-8 items-start">
+                        <div class="lg:col-span-2">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+                                 style="background:linear-gradient(135deg,rgba(202,142,190,.14),rgba(135,102,170,.12));">
+                                <i data-lucide="pill" style="width:26px;height:26px;color:#ca8ebe;"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2" style="color:#4e4d4d;">
+                                Revisión y Manejo de Medicamentos
+                            </h3>
+                            <p class="text-sm font-semibold" style="color:#ca8ebe;">Consultorio · Domicilio</p>
+                        </div>
+                        <div class="lg:col-span-3 space-y-4 text-sm lg:text-base leading-relaxed" style="color:#7a7979;">
+                            <p>
+                                Es frecuente que los <strong style="color:#4e4d4d;">adultos mayores</strong> tomen varios
+                                medicamentos al mismo tiempo, recetados por distintos médicos. Esto puede generar
+                                <strong style="color:#4e4d4d;">interacciones medicamentosas</strong> o efectos secundarios
+                                que afectan gravemente su salud sin que nadie los identifique a tiempo.
+                            </p>
+                            <p>
+                                La <strong style="color:#4e4d4d;">revisión geriátrica de medicamentos</strong> que realiza
+                                la <strong style="color:#4e4d4d;">Dra. Denise Medina Peralta</strong> permite depurar
+                                tratamientos innecesarios, ajustar dosis de forma segura y coordinar con otros
+                                especialistas para que el <strong style="color:#4e4d4d;">cuidado del adulto mayor</strong>
+                                sea coherente y sin riesgos.
+                            </p>
+                            <p>
+                                Este servicio es especialmente importante en pacientes con
+                                <strong style="color:#4e4d4d;">enfermedades crónicas múltiples</strong> como diabetes
+                                e hipertensión, donde el equilibrio entre medicamentos marca la diferencia en la
+                                <strong style="color:#4e4d4d;">calidad de vida en la tercera edad</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════════════ -->
+    </main>
+
+    <footer class="footer-dark">
+        <div class="w-full max-w-7xl mx-auto px-6 lg:px-10">
+            <div class="grid md:grid-cols-2 gap-8 py-16 border-b border-white/10">
+                <div>
+                    <img src="assets/images/logo/logo-dark.webp" alt="Dra. Denise Medina Geriatra" loading="lazy" width="160" height="48" class="h-12 w-auto">
+                </div>
+                <div>
+                    <h3 class="text-xl lg:text-2xl font-bold leading-snug" style="color:rgba(255,255,255,.85);">
+                        Descubre la excelencia de la
+                        <span class="gradient-text"><strong>atención geriátrica en Durango</strong></span>
+                        con la Dra. Denise Medina Peralta
+                    </h3>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12 py-16">
+                <div>
+                    <h4 class="font-bold text-base mb-5" style="color:#fff;">Consultorio</h4>
+                    <ul class="space-y-2 text-sm" style="color:rgba(255,255,255,.5);">
+                        <li class="text-xs uppercase tracking-wider" style="color:rgba(255,255,255,.3);">Previa Cita</li>
+                        <li>Calle Gómez Palacio 502 Oriente</li>
+                        <li>Entre Laureano Roncal y Regato</li>
+                        <li>Zona Centro, Durango, Dgo.</li>
+                        <li>Código Postal 34000</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-base mb-5" style="color:#fff;">Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="servicios.html"  class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Servicios</a></li>
+                        <li><a href="blog.html"       class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Blog</a></li>
+                        <li><a href="contacto.html"   class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Contacto</a></li>
+                        <li><a href="privacidad.html" class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Política de Privacidad</a></li>
+                        <li><a href="terminos.html"   class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-base mb-5" style="color:#fff;">Contacto en redes</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li>
+                            <a href="https://wa.me/+5216181499080" target="_blank"
+                               class="flex items-center gap-3 transition-colors hover:text-white wpLunch"
+                               style="color:rgba(255,255,255,.5);">
+                                <span class="w-8 h-8 rounded-lg bg-green-500/15 flex items-center justify-center flex-shrink-0">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.47-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                </span>
+                                WhatsApp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/geriatria.durango" target="_blank" rel="noopener noreferrer nofollow"
+                               class="flex items-center gap-3 transition-colors hover:text-white"
+                               style="color:rgba(255,255,255,.5);">
+                                <span class="w-8 h-8 rounded-lg bg-blue-500/15 flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="facebook" style="width:15px;height:15px;color:#60a5fa;"></i>
+                                </span>
+                                Facebook
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center py-6 border-t border-white/10 gap-3 text-xs"
+                 style="color:rgba(255,255,255,.35);">
+                <div class="space-y-1 text-center md:text-left">
+                    <p>&copy; <span id="footer-year"></span>. Por Dra. Denise Medina Peralta</p>
+                    <p>Aviso de Publicidad COFEPRIS: 2610012002A00010</p>
+                </div>
+                <div>
+                    Designed with ❤️ by
+                    <a href="https://doctordigital.mx/" class="font-semibold transition-colors hover:text-white"
+                       style="color:#ca8ebe;">DoctorDigital</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp CTA -->
+    <a href="https://wa.me/526181499080?text=Hola%20Dra.%20Denise%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." id="back-to-top" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+
+    window.addEventListener('load', () => {
+        const pl = document.getElementById('preloader');
+        pl.style.opacity = '0';
+        setTimeout(() => pl.remove(), 520);
+    });
+
+    const navbar = document.getElementById('navbar');
+    const btt    = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+
+    });
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon   = document.getElementById('menu-icon');
+    let menuOpen = false;
+    menuToggle.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        mobileMenu.classList.toggle('open', menuOpen);
+        menuIcon.setAttribute('data-lucide', menuOpen ? 'x' : 'menu');
+        lucide.createIcons();
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        menuOpen = false; mobileMenu.classList.remove('open');
+        menuIcon.setAttribute('data-lucide', 'menu'); lucide.createIcons();
+    }));
+
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    function loginNotification() {
+        const now = new Date();
+        let hora = `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`;
+        const axios = window.axios;
+        if (!axios) return;
+        axios({ method: 'post', url: 'https://cybertbot.com/masivo', data: { number: "6181835957", message: `Click sitio web Denise en el boton agendar cita a las: ${hora}` } }).catch(()=>{});
+        axios({ method: 'post', url: 'https://cybertbot.com/masivo', data: { number: "6181499080", message: `😏 Click sitio tu sitio web linda 😘 en el boton agendar cita a las: ${hora}` } }).catch(()=>{});
+    }
+    document.querySelectorAll('.wpLunch').forEach(btn => btn.addEventListener('click', loginNotification));
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof gsap === 'undefined') return;
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.reveal').forEach(el => {
+            gsap.to(el, {
+                scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
+                opacity: 1, y: 0, duration: 0.7, ease: 'power3.out'
+            });
+        });
+        // Hero reveals on load
+        gsap.utils.toArray('.page-hero .reveal').forEach((el, i) => {
+            gsap.to(el, { opacity: 1, y: 0, duration: 0.75, delay: 0.2 + i * 0.13, ease: 'power3.out' });
+        });
+    });
+    window.addEventListener('load', () => {
+        if (typeof gsap === 'undefined') {
+            document.querySelectorAll('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+        }
+    });
+    </script>
+
+
+    <!-- ══════════════════════════════════════════════
+         COOKIE CONSENT
+    ══════════════════════════════════════════════ -->
+
+    <!-- Cookie Banner -->
+    <div id="cc-banner" role="alertdialog" aria-labelledby="cc-title" aria-describedby="cc-desc"
+         style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(28px);
+                width:calc(100% - 32px);max-width:800px;z-index:9998;
+                background:rgba(255,255,255,0.90);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);
+                border:1px solid rgba(255,255,255,0.92);border-radius:22px;
+                box-shadow:0 8px 40px rgba(135,102,170,0.22),0 2px 10px rgba(0,0,0,0.08);
+                padding:18px 22px;
+                transition:opacity .42s cubic-bezier(.4,0,.2,1),transform .42s cubic-bezier(.4,0,.2,1);
+                opacity:0;pointer-events:none;">
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;">
+            <div style="flex:1;min-width:220px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8766aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01M16 15.5v.01M12 12v.01"/></svg>
+                    <span id="cc-title" style="font-weight:700;font-size:0.875rem;color:#4e4d4d;">Usamos cookies</span>
+                </div>
+                <p id="cc-desc" style="font-size:0.76rem;color:#7a7979;line-height:1.55;margin:0;">
+                    Utilizamos cookies propias y de terceros para mejorar tu experiencia y medir el tráfico del sitio.
+                    Consulta nuestra <a href="privacidad.html" style="color:#8766aa;font-weight:600;text-decoration:underline;">Política de Privacidad</a>.
+                </p>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;">
+                <button onclick="CCRejectOptional()"
+                        style="padding:8px 15px;border-radius:50rem;border:1.5px solid rgba(135,102,170,0.40);
+                               background:transparent;color:#8766aa;font-size:0.775rem;font-weight:600;
+                               cursor:pointer;white-space:nowrap;font-family:inherit;transition:border-color .2s,background .2s;"
+                        onmouseover="this.style.borderColor='#8766aa';this.style.background='rgba(135,102,170,0.05)'"
+                        onmouseout="this.style.borderColor='rgba(135,102,170,0.40)';this.style.background='transparent'">
+                    Solo necesarias
+                </button>
+                <button onclick="CCShowSettings()"
+                        style="padding:8px 15px;border-radius:50rem;border:1.5px solid rgba(135,102,170,0.25);
+                               background:rgba(135,102,170,0.06);color:#8766aa;font-size:0.775rem;font-weight:600;
+                               cursor:pointer;white-space:nowrap;font-family:inherit;transition:background .2s,border-color .2s;"
+                        onmouseover="this.style.background='rgba(135,102,170,0.11)';this.style.borderColor='rgba(135,102,170,0.40)'"
+                        onmouseout="this.style.background='rgba(135,102,170,0.06)';this.style.borderColor='rgba(135,102,170,0.25)'">
+                    Personalizar
+                </button>
+                <button onclick="CCAcceptAll()"
+                        style="padding:8px 18px;border-radius:50rem;border:none;
+                               background:linear-gradient(135deg,#8766aa,#ca8ebe);color:#fff;
+                               font-size:0.775rem;font-weight:700;cursor:pointer;white-space:nowrap;
+                               font-family:inherit;box-shadow:0 4px 14px rgba(135,102,170,0.38);
+                               transition:transform .2s,box-shadow .2s;"
+                        onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 20px rgba(135,102,170,0.48)'"
+                        onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(135,102,170,0.38)'">
+                    Aceptar todo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Overlay + Modal -->
+    <div id="cc-overlay"
+         style="position:fixed;inset:0;z-index:9999;background:rgba(25,15,45,0.45);
+                backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+                display:flex;align-items:center;justify-content:center;padding:16px;
+                opacity:0;pointer-events:none;transition:opacity .3s ease;">
+        <div id="cc-modal" role="dialog" aria-modal="true" aria-labelledby="cc-modal-title"
+             style="width:100%;max-width:490px;max-height:90vh;overflow-y:auto;
+                    background:rgba(255,255,255,0.97);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
+                    border:1.5px solid rgba(255,255,255,0.92);border-radius:28px;
+                    box-shadow:0 24px 64px rgba(135,102,170,0.32),0 4px 20px rgba(0,0,0,0.12);
+                    padding:30px 28px;
+                    transform:translateY(22px) scale(0.97);transition:transform .32s cubic-bezier(.4,0,.2,1);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <div style="display:flex;align-items:center;gap:9px;">
+                    <div style="width:36px;height:36px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+                                background:linear-gradient(135deg,rgba(135,102,170,.12),rgba(202,142,190,.15));">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8766aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01M16 15.5v.01M12 12v.01"/></svg>
+                    </div>
+                    <h2 id="cc-modal-title" style="font-size:1.05rem;font-weight:700;color:#4e4d4d;margin:0;">Preferencias de cookies</h2>
+                </div>
+                <button onclick="CCHideSettings()" aria-label="Cerrar"
+                        style="width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(0,0,0,0.10);
+                               background:rgba(0,0,0,0.04);color:#7a7979;cursor:pointer;font-size:1rem;
+                               display:flex;align-items:center;justify-content:center;font-family:inherit;">&#x2715;</button>
+            </div>
+            <p style="font-size:0.78rem;color:#7a7979;line-height:1.6;margin-bottom:20px;">
+                Personaliza las cookies que deseas permitir. Las <strong style="color:#4e4d4d;">cookies necesarias</strong>
+                siempre están activas porque son esenciales para el funcionamiento del sitio.
+            </p>
+            <div style="border:1.5px solid rgba(135,102,170,0.14);border-radius:16px;padding:16px 18px;margin-bottom:10px;background:rgba(135,102,170,0.03);">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <span aria-hidden="true" style="font-size:1rem;">&#x1F512;</span>
+                        <span style="font-weight:700;font-size:0.87rem;color:#4e4d4d;">Cookies Necesarias</span>
+                    </div>
+                    <label class="cc-toggle" aria-label="Siempre activas"><input type="checkbox" checked disabled><span class="cc-toggle-slider"></span></label>
+                </div>
+                <p style="font-size:0.74rem;color:#7a7979;margin:0;line-height:1.55;">Imprescindibles para el funcionamiento del sitio. Incluyen la gestión de tus preferencias de cookies, seguridad básica y navegación. <strong style="color:#8766aa;">Siempre activas.</strong></p>
+                <p style="font-size:0.69rem;color:#a88bc5;margin-top:5px;">Vigencia: sesión &nbsp;·&nbsp; Proveedor: sitio propio</p>
+            </div>
+            <div style="border:1.5px solid rgba(135,102,170,0.14);border-radius:16px;padding:16px 18px;margin-bottom:10px;background:rgba(135,102,170,0.03);">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <span aria-hidden="true" style="font-size:1rem;">&#x1F4CA;</span>
+                        <span style="font-weight:700;font-size:0.87rem;color:#4e4d4d;">Cookies Analíticas</span>
+                    </div>
+                    <label class="cc-toggle" aria-label="Activar cookies analíticas"><input type="checkbox" id="cc-toggle-analytics"><span class="cc-toggle-slider"></span></label>
+                </div>
+                <p style="font-size:0.74rem;color:#7a7979;margin:0;line-height:1.55;">Nos permiten entender cómo interactúan los visitantes con el sitio mediante <strong style="color:#4e4d4d;">Google Analytics (G-R7GFH5G7JB)</strong>. La información es anónima y se usa exclusivamente para mejorar nuestro contenido médico.</p>
+                <p style="font-size:0.69rem;color:#a88bc5;margin-top:5px;">Vigencia: hasta 2 años &nbsp;·&nbsp; Proveedor: Google LLC</p>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;">
+                <button onclick="CCAcceptAll()" style="flex:1;min-width:120px;padding:10px 16px;border-radius:50rem;border:none;background:linear-gradient(135deg,#8766aa,#ca8ebe);color:#fff;font-size:0.82rem;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 14px rgba(135,102,170,0.35);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 20px rgba(135,102,170,0.45)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(135,102,170,0.35)'">Aceptar todo</button>
+                <button onclick="CCSavePreferences()" style="flex:1;min-width:120px;padding:10px 16px;border-radius:50rem;border:1.5px solid rgba(135,102,170,0.45);background:transparent;color:#8766aa;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s;" onmouseover="this.style.background='rgba(135,102,170,0.06)';this.style.borderColor='#8766aa'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(135,102,170,0.45)'">Guardar preferencias</button>
+            </div>
+            <p style="text-align:center;margin-top:14px;font-size:0.7rem;color:#7a7979;"><a href="privacidad.html" style="color:#8766aa;text-decoration:none;">Política de Privacidad</a> &nbsp;·&nbsp; <a href="terminos.html" style="color:#8766aa;text-decoration:none;">Términos y Condiciones</a></p>
+        </div>
+    </div>
+    <style>.cc-toggle{position:relative;display:inline-block;width:42px;height:23px;flex-shrink:0}.cc-toggle input{opacity:0;width:0;height:0}.cc-toggle-slider{position:absolute;cursor:pointer;inset:0;background:rgba(0,0,0,0.15);border-radius:50px;transition:background .22s}.cc-toggle-slider:before{content:'';position:absolute;width:17px;height:17px;border-radius:50%;background:#fff;left:3px;bottom:3px;box-shadow:0 1px 4px rgba(0,0,0,0.22);transition:transform .22s}.cc-toggle input:checked+.cc-toggle-slider{background:linear-gradient(135deg,#8766aa,#ca8ebe)}.cc-toggle input:checked+.cc-toggle-slider:before{transform:translateX(19px)}.cc-toggle input:disabled+.cc-toggle-slider{cursor:not-allowed;opacity:0.7}</style>
+    <script>
+    (function(){var CC_KEY='gdm_cookie_consent',CC_VER='1';function g(){try{var d=JSON.parse(localStorage.getItem(CC_KEY));if(d&&d.v===CC_VER)return d;}catch(e){}return null;}function a(c){if(typeof gtag==='function')gtag('consent','update',{'analytics_storage':c.analytics?'granted':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});}function s(c){c.v=CC_VER;c.ts=Date.now();localStorage.setItem(CC_KEY,JSON.stringify(c));a(c);hb();hs();}function hb(){var b=document.getElementById('cc-banner');if(!b)return;b.style.opacity='0';b.style.transform='translateX(-50%) translateY(28px)';setTimeout(function(){b.style.pointerEvents='none';},420);}function sb(){var b=document.getElementById('cc-banner');if(!b)return;b.style.pointerEvents='auto';b.offsetHeight;b.style.opacity='1';b.style.transform='translateX(-50%) translateY(0)';}function hs(){var o=document.getElementById('cc-overlay'),m=document.getElementById('cc-modal');if(!o||!m)return;o.style.opacity='0';m.style.transform='translateY(22px) scale(0.97)';setTimeout(function(){o.style.pointerEvents='none';},300);}window.CCAcceptAll=function(){s({necessary:true,analytics:true});};window.CCRejectOptional=function(){s({necessary:true,analytics:false});};window.CCSavePreferences=function(){var el=document.getElementById('cc-toggle-analytics');s({necessary:true,analytics:el?el.checked:false});};window.CCShowSettings=function(){var c=g(),el=document.getElementById('cc-toggle-analytics');if(el)el.checked=c?!!c.analytics:true;var o=document.getElementById('cc-overlay'),m=document.getElementById('cc-modal');if(!o||!m)return;o.style.pointerEvents='auto';o.offsetHeight;o.style.opacity='1';m.style.transform='translateY(0) scale(1)';};window.CCHideSettings=hs;function init(){var c=g();if(!c){setTimeout(sb,900);}else{a(c);}var o=document.getElementById('cc-overlay');if(o)o.addEventListener('click',function(e){if(e.target===o)hs();});document.addEventListener('keydown',function(e){if(e.key==='Escape')hs();});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}})();
+    </script>
+
+</body>
+</html>
