@@ -1,0 +1,44 @@
+# ── Internal docs ─────────────────────────────────────
+instrucciones.md
+
+# ── Backup / draft files ──────────────────────────────
+*copia*
+*backup*
+*draft*
+*.bak
+*.orig
+
+# ── OS generated ──────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── Editor / IDE ──────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.user
+*.swp
+*.swo
+*~
+
+# ── Playwright / test artifacts ───────────────────────
+.playwright-mcp/
+playwright-report/
+test-results/
+
+# ── Node (if ever used locally) ───────────────────────
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ── Build / cache ─────────────────────────────────────
+dist/
+.cache/
+*.log
