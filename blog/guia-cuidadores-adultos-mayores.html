@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Cookie Consent Mode v2 -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        (function(){
+            var _cc = null;
+            try { _cc = JSON.parse(localStorage.getItem('gdm_cookie_consent')); } catch(e) {}
+            gtag('consent', 'default', {
+                'analytics_storage': (_cc && _cc.analytics) ? 'granted' : 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': (_cc && _cc.v === '1') ? 0 : 500
+            });
+        })();
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7GFH5G7JB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-R7GFH5G7JB');
+    </script>
+
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Guía emocional y médica para el cuidador exhausto. Cómo prevenir el Síndrome del Cuidador Quemado (Burnout) si asistes a un adulto mayor con Alzheimer.">
+    <meta name="keywords" content="sindrome del cuidador, hija cuida madre enferma, agotamiento cuidador alzheimer, burn out familiar, apoyo geriatrico familiar">
+    <meta name="author" content="Dra. Denise Medina Peralta">
+    <title>El Síndrome del Cuidador Quemado (Burnout Familiar)</title>
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dradenisemedina.com/blog/guia-cuidadores-adultos-mayores">
+    <meta property="og:title" content="Si tú te hundes, ellos también: El Síndrome del Cuidador">
+    <meta property="og:description" content="Técnicas de preservación de la salud mental, distribución de cargas familiares y opciones de alivio químico nocturno para cuidar pacientes con demencia severa.">
+    <meta property="og:image" content="https://dradenisemedina.com/assets/images/social-share-cover.jpg">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Schema.org JSON-LD (LLMO / GEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Guía Definitiva Contra el Burnout del Cuidador Geriátrico",
+      "author": { "@type": "Person", "name": "Dra. Denise Medina Peralta" },
+      "datePublished": "2024-03-14"
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../assets/css/tailwind.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+    <style>
+        /* Base Reset & Core Styles */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; color: #4e4d4d; overflow-x: hidden; background: #faf8ff; }
+
+        .gradient-bg { background: linear-gradient(135deg, #f5f0ff 0%, #fdf0fb 30%, #fff3f8 60%, #f0ebff 100%); background-size: 300% 300%; animation: hueShift 18s ease infinite; }
+        @keyframes hueShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        .orb { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.28; pointer-events: none; }
+        .orb-1 { width: 480px; height: 480px; background: radial-gradient(circle, #8766aa, transparent); top: -100px; right: -60px; animation: floatA 22s ease-in-out infinite; }
+        .orb-2 { width: 360px; height: 360px; background: radial-gradient(circle, #ca8ebe, transparent); bottom: -40px; left: -80px; animation: floatB 28s ease-in-out infinite; }
+        @keyframes floatA { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(-50px,40px) scale(1.08)} 66%{transform:translate(30px,-20px) scale(0.93)} }
+        @keyframes floatB { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(44px,-32px) scale(1.05)} 66%{transform:translate(-22px,48px) scale(0.96)} }
+
+        .glass { background: rgba(255,255,255,0.58); backdrop-filter: blur(22px); border: 1px solid rgba(255,255,255,0.65); }
+        .glass-card { background: rgba(255,255,255,0.72); backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.82); }
+        .glass-subtle { background: rgba(255,255,255,0.35); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.45); }
+
+        .navbar-island {
+            position: fixed; top: 18px; left: 50%; transform: translateX(-50%); z-index: 1000; width: calc(100% - 32px); max-width: 920px;
+            background: rgba(255,255,255,0.42); backdrop-filter: blur(32px); border: 1px solid rgba(255,255,255,0.55); border-radius: 9999px; padding: 10px 20px;
+            box-shadow: 0 8px 32px rgba(135,102,170,0.10); transition: box-shadow .35s ease, background .35s ease;
+        }
+        .navbar-island.scrolled { background: rgba(255,255,255,0.68); box-shadow: 0 12px 42px rgba(135,102,170,0.22); }
+        
+        .nav-link-pill { position: relative; font-size: 14px; font-weight: 500; color: #4e4d4d; padding: 5px 2px; text-decoration: none; transition: color .25s; }
+        .nav-link-pill::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #8766aa, #ca8ebe); transition: width .3s ease; }
+        .nav-link-pill:hover, .nav-link-pill.active { color: #8766aa; }
+        .nav-link-pill:hover::after, .nav-link-pill.active::after { width: 100%; }
+
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 7px; background: linear-gradient(135deg, #8766aa 0%, #ca8ebe 100%);
+            color: #fff; border-radius: 9999px; padding: 13px 28px; font-weight: 600; font-size: 14px;
+            box-shadow: 0 4px 20px rgba(135,102,170,0.32); transition: transform .25s, box-shadow .25s;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(135,102,170,0.48); }
+        
+        .section-tag {
+            display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8766aa;
+            background: linear-gradient(135deg, rgba(135,102,170,.1), rgba(202,142,190,.12)); border: 1px solid rgba(135,102,170,.2); border-radius: 9999px; padding: 5px 14px; margin-bottom: 14px;
+        }
+        .gradient-text { background: linear-gradient(135deg, #8766aa 0%, #ca8ebe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .page-hero { background: linear-gradient(135deg, #f5f0ff 0%, #fdf0fb 50%, #f0ebff 100%); position: relative; overflow: hidden; padding: 160px 0 80px; }
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        
+        #back-to-top {
+            position: fixed; bottom: 28px; right: 28px; width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #fff;
+            display: flex; align-items: center; justify-content: center; z-index: 500;
+            box-shadow: 0 4px 18px rgba(37,211,102,.45); animation: waPulse 2s ease-out infinite; transition: transform .3s;
+        }
+        #back-to-top:hover { transform: translateY(-3px); }
+        @keyframes waPulse { 0% { box-shadow: 0 4px 18px rgba(37,211,102,.45), 0 0 0 0 rgba(37,211,102,.55); } 70% { box-shadow: 0 4px 18px rgba(37,211,102,.45), 0 0 0 18px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+
+        /* FAQ Accordion */
+        details summary::-webkit-details-marker { display: none; }
+        details[open] > summary .faq-icon { transform: rotate(45deg); }
+        details > div { animation: faqOpen .25s ease; }
+        @keyframes faqOpen { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+        
+        /* Layout resets */
+        @media (max-width: 767px) { .navbar-island { border-radius: 22px; padding: 10px 16px; } .page-hero { padding: 130px 0 60px; } }
+        .footer-dark { background: linear-gradient(45deg, #000000, #000000, #140914, #111111); }
+    </style>
+</head>
+
+<body class="gradient-bg">
+
+    <!-- Navbar Island -->
+    <nav class="navbar-island" id="navbar" aria-label="Navegación principal">
+        <div class="flex items-center justify-between gap-4">
+            <a href="../index.html" class="flex-shrink-0">
+                <img src="../assets/images/logo/logo.webp" alt="Dra. Denise Medina Geriatra" width="144" height="36" class="h-9 w-auto">
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="../index.html"     class="nav-link-pill">Inicio</a>
+                <a href="../blog.html" class="nav-link-pill active">Blog</a>
+                <a href="../blog.html"      class="nav-link-pill">Blog</a>
+                <a href="../contacto.html"  class="nav-link-pill">Contacto</a>
+            </div>
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/+5216181499080" target="_blank" class="hidden md:inline-flex btn-primary text-xs py-2.5 px-5">
+                    <i data-lucide="phone" style="width:14px;height:14px;"></i> Agendar Cita
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- ══════════════════════════════════════════════
+             HERO SECTION (AEO Targeted Snippet)
+        ══════════════════════════════════════════════ -->
+        <article>
+            <section class="page-hero">
+                <div class="orb orb-1"></div><div class="orb orb-2"></div>
+                <div class="w-full max-w-7xl mx-auto px-6 lg:px-10">
+                    <div class="max-w-3xl">
+                        <div class="section-tag reveal"><i data-lucide="book-open" style="width:13px;height:13px;"></i> Salud Mental</div>
+                        <h1 class="text-4xl lg:text-5xl font-bold leading-tight mb-5 reveal" style="color:#4e4d4d; letter-spacing:-0.03em;">
+                            La Tragedia Invisible: <span class="gradient-text">El Síndrome del Cuidador</span>
+                        </h1>
+                        <p class="text-base lg:text-xl font-medium leading-relaxed mb-6 reveal" style="color:#4e4d4d;">
+                            ¿Lloras incontrolablemente en el baño para que nadie te escuche? ¿Sientes resentimiento, amargura y culpa profunda al mismo tiempo por estar físicamente aniquilada velando a tu madre? Hablemos con total franqueza sobre cómo salvaguardar tu mente.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
+                 SECCIÓN: ¿Qué es el Alzheimer?
+            ══════════════════════════════════════════════ -->
+            <section class="py-20">
+                <div class="w-full max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
+                    <div class="lg:col-span-8 space-y-6">
+<h2 class="text-3xl font-bold mb-4 reveal" style="color:#4e4d4d;">Tú eres el pilar. Si tú te quiebras, la casa entera se colapsa.</h2>
+                        <p class="text-base leading-relaxed reveal" style="color:#7a7979;">
+                            El gran error institucional es enfocar el 100% de la energía médica únicamente en el paciente y el 0% en la familia. El Alzheimer y la Demencia Vascular son llamadas <em>las patologías de la familia extensa</em> porque arrasan financieramente, emocionalmente y biológicamente con los hijos a cargo.
+                        </p>
+                        
+                        <h3 class="text-2xl font-bold mt-10 mb-4 reveal" style="color:#4e4d4d;">Protocolo de Supervivencia Emocional</h3>
+                        <ul class="space-y-4 reveal">
+                            <li class="glass p-5 rounded-2xl">
+                                <span class="block text-base font-bold mb-1" style="color:#4e4d4d;">1. Rechaza de tajo a la "Culpa Falsa"</span>
+                                <span class="text-sm font-medium" style="color:#7a7979;">Comprender clínicamente que cuando un Alzheimer agudo dice groserías o acusa que "me están robando el dinero mis propios hijos", NO es tu ser querido hablando. Es la degeneración neurológica. No puedes tomarlo personal porque su corteza frontal inhibitoria y su capacidad crítica literal y biológicamente no existen ya.</span>
+                            </li>
+                            <li class="glass p-5 rounded-2xl">
+                                <span class="block text-base font-bold mb-1" style="color:#4e4d4d;">2. La obligación del relevo programado</span>
+                                <span class="text-sm font-medium" style="color:#7a7979;">El martirio individual no sirve a nadie. Se deben establecer asambleas familiares formales donde los cuidados básicos se tercericen o roten. Hay una regla inquebrantable en geriatría: Un cuidador primario en soledad, tiene una esperanza de ver afectada su barrera cardiovascular por estrés tan severo, que es propenso a infartos precoces igual que un fumador de cadena.</span>
+                            </li>
+                            <li class="glass p-5 rounded-2xl">
+                                <span class="block text-base font-bold mb-1" style="color:#4e4d4d;">3. Exigir ayuda farmacológica al Médico Tratante</span>
+                                <span class="text-sm font-medium" style="color:#7a7979;">Es un crimen dejar sufrir a un paciente —y por ende a su hijo sin poder dormir las 8 horas diarias— simplemente por el "miedo" a la psiquiatría. Gran parte de nuestro trabajo es estabilizar farmacológicamente las noches del adulto mayor confuso para garantizar el sueño profundo sanador para todo el hogar.</span>
+                            </li>
+                        </ul>
+                        <p class="text-base font-medium reveal mt-8" style="color:#4e4d4d;">
+                            No tienes por qué transitar por este duelo a ciegas. Permítenos intervenir y generar estructuras sólidas a tu lado.
+                        </p>
+                        <div class="mt-12">
+                            <a href="https://wa.me/+5216181499080" target="_blank" class="btn-primary reveal text-sm"><i data-lucide="calendar" style="width:16px;height:16px;"></i> Agendar Segunda Opinión Urgente</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Sidebar: Autoridad -->
+                    <aside class="lg:col-span-4 mt-10 lg:mt-0">
+                        <div class="glass-card rounded-3xl p-8 sticky top-32 reveal">
+                            <div class="mb-5 relative rounded-2xl overflow-hidden" style="background: linear-gradient(to top, rgba(135,102,170,.15), transparent); padding-top: 1rem;">
+                                <img src="../assets/images/servicios.webp" alt="Dra. Denise Medina Peralta" class="w-full border-b-2 border-transparent h-48 object-contain object-bottom drop-shadow-md">
+                            </div>
+                            <h4 class="font-bold text-lg mb-1" style="color:#4e4d4d;">Dra. Denise Medina</h4>
+                            <p class="text-sm mb-4" style="color:#8766aa;">Médico Geriatra · UNAM</p>
+                            <p class="text-xs leading-relaxed mb-6" style="color:#7a7979;">Aportando pedagogía científica desde la compasión y los nuevos descubrimientos hepáticos y neuronales. El control bioquímico de un paciente significa siempre claridad y tranquilidad en la familia mexicana.</p>
+                            <div class="space-y-2 mb-6">
+                                <span class="flex items-center gap-2 text-xs font-semibold" style="color:#4e4d4d;">
+                                    <i data-lucide="shield-check" style="width:14px;height:14px;color:#8766aa;"></i> Práctica Médica Segura
+                                </span>
+                            </div>
+                            <a href="../sobre-la-dra-denise-medina.html" class="text-xs font-semibold hover:underline" style="color:#8766aa;">Conoce mi trayectoria →</a>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════════
+                 SECCIÓN: Enfoque de Tratamiento
+            ══════════════════════════════════════════════ -->
+            </article>
+    </main>
+
+    <footer class="footer-dark">
+        <div class="w-full max-w-7xl mx-auto px-6 lg:px-10">
+
+            <!-- Top -->
+            <div class="grid md:grid-cols-2 gap-8 py-16 border-b border-white/10">
+                <div>
+                    <img src="../assets/images/logo/logo-dark.webp" alt="Dra. Denise Medina Geriatra" loading="lazy" width="160" height="48" class="h-12 w-auto">
+                </div>
+                <div>
+                    <h3 class="text-xl lg:text-2xl font-bold leading-snug" style="color:rgba(255,255,255,.85);">
+                        Descubre la excelencia de la
+                        <span class="gradient-text"><strong>atención geriátrica en Durango</strong></span>
+                        con la Dra. Denise Medina Peralta
+                    </h3>
+                </div>
+            </div>
+
+            <!-- Widgets -->
+            <div class="grid md:grid-cols-3 gap-12 py-16">
+
+                <div>
+                    <h4 class="font-bold text-base mb-5" style="color:#fff;">Consultorio</h4>
+                    <ul class="space-y-2 text-sm" style="color:rgba(255,255,255,.5);">
+                        <li class="text-xs uppercase tracking-wider" style="color:rgba(255,255,255,.3);">Previa Cita</li>
+                        <li>Calle Gómez Palacio 502 Oriente</li>
+                        <li>Entre Laureano Roncal y Regato</li>
+                        <li>Zona Centro, Durango, Dgo.</li>
+                        <li>Código Postal 34000</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-base mb-5" style="color:#fff;">Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="../blog.html"  class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Blog</a></li>
+                        <li><a href="../blog.html"       class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Blog</a></li>
+                        <li><a href="../contacto.html"   class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Contacto</a></li>
+                        <li><a href="../privacidad.html" class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Política de Privacidad</a></li>
+                        <li><a href="../terminos.html"   class="transition-colors hover:text-white" style="color:rgba(255,255,255,.5);">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-base mb-5" style="color:#fff;">Contacto en redes</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li>
+                            <a href="https://wa.me/+5216181499080" target="_blank"
+                               class="flex items-center gap-3 transition-colors hover:text-white wpLunch"
+                               style="color:rgba(255,255,255,.5);">
+                                <span class="w-8 h-8 rounded-lg bg-green-500/15 flex items-center justify-center flex-shrink-0">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.47-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                </span>
+                                WhatsApp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/geriatria.durango" target="_blank" rel="noopener noreferrer nofollow"
+                               class="flex items-center gap-3 transition-colors hover:text-white"
+                               style="color:rgba(255,255,255,.5);">
+                                <span class="w-8 h-8 rounded-lg bg-blue-500/15 flex items-center justify-center flex-shrink-0">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                                </span>
+                                Facebook
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="flex flex-col md:flex-row justify-between items-center py-6 border-t border-white/10 gap-3 text-xs"
+                 style="color:rgba(255,255,255,.35);">
+                <div class="space-y-1 text-center md:text-left">
+                    <p>&copy; <span id="footer-year"></span>. Por Dra. Denise Medina Peralta</p>
+                    <p>Aviso de Publicidad COFEPRIS: 2610012002A00010</p>
+                </div>
+                <div>
+                    Designed with ❤️ by
+                    <a href="https://doctordigital.mx/" class="font-semibold transition-colors hover:text-white"
+                       style="color:#ca8ebe;">DoctorDigital</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp CTA -->
+    <a href="https://wa.me/526181499080?text=Hola%20Dra.%20Denise%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." id="back-to-top" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    
+
+    <!-- Scripts Geriátricos Generales -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+        });
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 60); });
+        
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+
+
+<!-- ══════════════════════════════════════════════
+         COOKIE CONSENT
+    ══════════════════════════════════════════════ -->
+
+    <!-- Cookie Banner -->
+    <div id="cc-banner" role="alertdialog" aria-labelledby="cc-title" aria-describedby="cc-desc"
+         style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(28px);
+                width:calc(100% - 32px);max-width:800px;z-index:9998;
+                background:rgba(255,255,255,0.90);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);
+                border:1px solid rgba(255,255,255,0.92);border-radius:22px;
+                box-shadow:0 8px 40px rgba(135,102,170,0.22),0 2px 10px rgba(0,0,0,0.08);
+                padding:18px 22px;
+                transition:opacity .42s cubic-bezier(.4,0,.2,1),transform .42s cubic-bezier(.4,0,.2,1);
+                opacity:0;pointer-events:none;">
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;">
+            <div style="flex:1;min-width:220px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8766aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01M16 15.5v.01M12 12v.01"/></svg>
+                    <span id="cc-title" style="font-weight:700;font-size:0.875rem;color:#4e4d4d;">Usamos cookies</span>
+                </div>
+                <p id="cc-desc" style="font-size:0.76rem;color:#7a7979;line-height:1.55;margin:0;">
+                    Utilizamos cookies propias y de terceros para mejorar tu experiencia y medir el tráfico del sitio.
+                    Consulta nuestra <a href="../privacidad.html" style="color:#8766aa;font-weight:600;text-decoration:underline;">Política de Privacidad</a>.
+                </p>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex-shrink:0;">
+                <button onclick="CCRejectOptional()"
+                        style="padding:8px 15px;border-radius:50rem;border:1.5px solid rgba(135,102,170,0.40);
+                               background:transparent;color:#8766aa;font-size:0.775rem;font-weight:600;
+                               cursor:pointer;white-space:nowrap;font-family:inherit;transition:border-color .2s,background .2s;"
+                        onmouseover="this.style.borderColor='#8766aa';this.style.background='rgba(135,102,170,0.05)'"
+                        onmouseout="this.style.borderColor='rgba(135,102,170,0.40)';this.style.background='transparent'">
+                    Solo necesarias
+                </button>
+                <button onclick="CCShowSettings()"
+                        style="padding:8px 15px;border-radius:50rem;border:1.5px solid rgba(135,102,170,0.25);
+                               background:rgba(135,102,170,0.06);color:#8766aa;font-size:0.775rem;font-weight:600;
+                               cursor:pointer;white-space:nowrap;font-family:inherit;transition:background .2s,border-color .2s;"
+                        onmouseover="this.style.background='rgba(135,102,170,0.11)';this.style.borderColor='rgba(135,102,170,0.40)'"
+                        onmouseout="this.style.background='rgba(135,102,170,0.06)';this.style.borderColor='rgba(135,102,170,0.25)'">
+                    Personalizar
+                </button>
+                <button onclick="CCAcceptAll()"
+                        style="padding:8px 18px;border-radius:50rem;border:none;
+                               background:linear-gradient(135deg,#8766aa,#ca8ebe);color:#fff;
+                               font-size:0.775rem;font-weight:700;cursor:pointer;white-space:nowrap;
+                               font-family:inherit;box-shadow:0 4px 14px rgba(135,102,170,0.38);
+                               transition:transform .2s,box-shadow .2s;"
+                        onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 20px rgba(135,102,170,0.48)'"
+                        onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(135,102,170,0.38)'">
+                    Aceptar todo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Overlay + Modal -->
+    <div id="cc-overlay"
+         style="position:fixed;inset:0;z-index:9999;background:rgba(25,15,45,0.45);
+                backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+                display:flex;align-items:center;justify-content:center;padding:16px;
+                opacity:0;pointer-events:none;transition:opacity .3s ease;">
+        <div id="cc-modal" role="dialog" aria-modal="true" aria-labelledby="cc-modal-title"
+             style="width:100%;max-width:490px;max-height:90vh;overflow-y:auto;
+                    background:rgba(255,255,255,0.97);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
+                    border:1.5px solid rgba(255,255,255,0.92);border-radius:28px;
+                    box-shadow:0 24px 64px rgba(135,102,170,0.32),0 4px 20px rgba(0,0,0,0.12);
+                    padding:30px 28px;
+                    transform:translateY(22px) scale(0.97);transition:transform .32s cubic-bezier(.4,0,.2,1);">
+
+            <!-- Header -->
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <div style="display:flex;align-items:center;gap:9px;">
+                    <div style="width:36px;height:36px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+                                background:linear-gradient(135deg,rgba(135,102,170,.12),rgba(202,142,190,.15));">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8766aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01M16 15.5v.01M12 12v.01"/></svg>
+                    </div>
+                    <h2 id="cc-modal-title" style="font-size:1.05rem;font-weight:700;color:#4e4d4d;margin:0;">Preferencias de cookies</h2>
+                </div>
+                <button onclick="CCHideSettings()" aria-label="Cerrar"
+                        style="width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(0,0,0,0.10);
+                               background:rgba(0,0,0,0.04);color:#7a7979;cursor:pointer;font-size:1rem;
+                               display:flex;align-items:center;justify-content:center;font-family:inherit;">&#x2715;</button>
+            </div>
+
+            <p style="font-size:0.78rem;color:#7a7979;line-height:1.6;margin-bottom:20px;">
+                Personaliza las cookies que deseas permitir. Las <strong style="color:#4e4d4d;">cookies necesarias</strong>
+                siempre están activas porque son esenciales para el funcionamiento del sitio.
+            </p>
+
+            <!-- Categoría: Necesarias -->
+            <div style="border:1.5px solid rgba(135,102,170,0.14);border-radius:16px;padding:16px 18px;margin-bottom:10px;background:rgba(135,102,170,0.03);">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <span aria-hidden="true" style="font-size:1rem;">&#x1F512;</span>
+                        <span style="font-weight:700;font-size:0.87rem;color:#4e4d4d;">Cookies Necesarias</span>
+                    </div>
+                    <label class="cc-toggle" aria-label="Siempre activas">
+                        <input type="checkbox" checked disabled>
+                        <span class="cc-toggle-slider"></span>
+                    </label>
+                </div>
+                <p style="font-size:0.74rem;color:#7a7979;margin:0;line-height:1.55;">
+                    Imprescindibles para el funcionamiento del sitio. Incluyen la gestión de tus preferencias de cookies,
+                    seguridad básica y navegación correcta. <strong style="color:#8766aa;">Siempre activas.</strong>
+                </p>
+                <p style="font-size:0.69rem;color:#a88bc5;margin-top:5px;">Vigencia: sesión &nbsp;·&nbsp; Proveedor: sitio propio</p>
+            </div>
+
+            <!-- Categoría: Analíticas -->
+            <div style="border:1.5px solid rgba(135,102,170,0.14);border-radius:16px;padding:16px 18px;margin-bottom:10px;background:rgba(135,102,170,0.03);">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <span aria-hidden="true" style="font-size:1rem;">&#x1F4CA;</span>
+                        <span style="font-weight:700;font-size:0.87rem;color:#4e4d4d;">Cookies Analíticas</span>
+                    </div>
+                    <label class="cc-toggle" aria-label="Activar cookies analíticas">
+                        <input type="checkbox" id="cc-toggle-analytics">
+                        <span class="cc-toggle-slider"></span>
+                    </label>
+                </div>
+                <p style="font-size:0.74rem;color:#7a7979;margin:0;line-height:1.55;">
+                    Nos permiten entender cómo interactúan los visitantes con el sitio mediante
+                    <strong style="color:#4e4d4d;">Google Analytics (G-R7GFH5G7JB)</strong>.
+                    La información es anónima y se usa exclusivamente para mejorar nuestro contenido médico.
+                </p>
+                <p style="font-size:0.69rem;color:#a88bc5;margin-top:5px;">Vigencia: hasta 2 años &nbsp;·&nbsp; Proveedor: Google LLC</p>
+            </div>
+
+            <!-- Botones -->
+            <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;">
+                <button onclick="CCAcceptAll()"
+                        style="flex:1;min-width:120px;padding:10px 16px;border-radius:50rem;border:none;
+                               background:linear-gradient(135deg,#8766aa,#ca8ebe);color:#fff;
+                               font-size:0.82rem;font-weight:700;cursor:pointer;font-family:inherit;
+                               box-shadow:0 4px 14px rgba(135,102,170,0.35);transition:transform .2s,box-shadow .2s;"
+                        onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 20px rgba(135,102,170,0.45)'"
+                        onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(135,102,170,0.35)'">
+                    Aceptar todo
+                </button>
+                <button onclick="CCSavePreferences()"
+                        style="flex:1;min-width:120px;padding:10px 16px;border-radius:50rem;border:1.5px solid rgba(135,102,170,0.45);
+                               background:transparent;color:#8766aa;font-size:0.82rem;font-weight:600;
+                               cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s;"
+                        onmouseover="this.style.background='rgba(135,102,170,0.06)';this.style.borderColor='#8766aa'"
+                        onmouseout="this.style.background='transparent';this.style.borderColor='rgba(135,102,170,0.45)'">
+                    Guardar preferencias
+                </button>
+            </div>
+            <p style="text-align:center;margin-top:14px;font-size:0.7rem;color:#7a7979;">
+                <a href="../privacidad.html" style="color:#8766aa;text-decoration:none;">Política de Privacidad</a>
+                &nbsp;·&nbsp;
+                <a href="../terminos.html" style="color:#8766aa;text-decoration:none;">Términos y Condiciones</a>
+            </p>
+        </div>
+    </div>
+
+    <style>
+    /* Cookie consent toggle switch */
+    .cc-toggle { position:relative;display:inline-block;width:42px;height:23px;flex-shrink:0; }
+    .cc-toggle input { opacity:0;width:0;height:0; }
+    .cc-toggle-slider {
+        position:absolute;cursor:pointer;inset:0;
+        background:rgba(0,0,0,0.15);border-radius:50px;
+        transition:background .22s;
+    }
+    .cc-toggle-slider:before {
+        content:'';position:absolute;width:17px;height:17px;border-radius:50%;
+        background:#fff;left:3px;bottom:3px;
+        box-shadow:0 1px 4px rgba(0,0,0,0.22);
+        transition:transform .22s;
+    }
+    .cc-toggle input:checked + .cc-toggle-slider { background:linear-gradient(135deg,#8766aa,#ca8ebe); }
+    .cc-toggle input:checked + .cc-toggle-slider:before { transform:translateX(19px); }
+    .cc-toggle input:disabled + .cc-toggle-slider { cursor:not-allowed;opacity:0.7; }
+    </style>
+
+    <script>
+    /* Cookie Consent Manager — gdm v1 */
+    (function() {
+        var CC_KEY = 'gdm_cookie_consent';
+        var CC_VER = '1';
+
+        function CCGetConsent() {
+            try {
+                var d = JSON.parse(localStorage.getItem(CC_KEY));
+                if (d && d.v === CC_VER) return d;
+            } catch(e) {}
+            return null;
+        }
+
+        function CCApply(consent) {
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', {
+                    'analytics_storage': consent.analytics ? 'granted' : 'denied',
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied'
+                });
+            }
+        }
+
+        function CCSave(consent) {
+            consent.v = CC_VER;
+            consent.ts = Date.now();
+            localStorage.setItem(CC_KEY, JSON.stringify(consent));
+            CCApply(consent);
+            CCHideBanner();
+            CCHideSettingsInternal();
+        }
+
+        function CCHideBanner() {
+            var b = document.getElementById('cc-banner');
+            if (!b) return;
+            b.style.opacity = '0';
+            b.style.transform = 'translateX(-50%) translateY(28px)';
+            setTimeout(function() { b.style.pointerEvents = 'none'; }, 420);
+        }
+
+        function CCShowBanner() {
+            var b = document.getElementById('cc-banner');
+            if (!b) return;
+            b.style.pointerEvents = 'auto';
+            b.offsetHeight;
+            b.style.opacity = '1';
+            b.style.transform = 'translateX(-50%) translateY(0)';
+        }
+
+        function CCHideSettingsInternal() {
+            var o = document.getElementById('cc-overlay');
+            var m = document.getElementById('cc-modal');
+            if (!o || !m) return;
+            o.style.opacity = '0';
+            m.style.transform = 'translateY(22px) scale(0.97)';
+            setTimeout(function() { o.style.pointerEvents = 'none'; }, 300);
+        }
+
+        window.CCAcceptAll      = function() { CCSave({ necessary: true, analytics: true }); };
+        window.CCRejectOptional = function() { CCSave({ necessary: true, analytics: false }); };
+        window.CCSavePreferences = function() {
+            var el = document.getElementById('cc-toggle-analytics');
+            CCSave({ necessary: true, analytics: el ? el.checked : false });
+        };
+        window.CCShowSettings = function() {
+            var consent = CCGetConsent();
+            var el = document.getElementById('cc-toggle-analytics');
+            if (el) el.checked = consent ? !!consent.analytics : true;
+            var o = document.getElementById('cc-overlay');
+            var m = document.getElementById('cc-modal');
+            if (!o || !m) return;
+            o.style.pointerEvents = 'auto';
+            o.offsetHeight;
+            o.style.opacity = '1';
+            m.style.transform = 'translateY(0) scale(1)';
+        };
+        window.CCHideSettings = CCHideSettingsInternal;
+
+        function CCInit() {
+            var consent = CCGetConsent();
+            if (!consent) {
+                setTimeout(CCShowBanner, 900);
+            } else {
+                CCApply(consent);
+            }
+            var overlay = document.getElementById('cc-overlay');
+            if (overlay) {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === overlay) CCHideSettingsInternal();
+                });
+            }
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') CCHideSettingsInternal();
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', CCInit);
+        } else {
+            CCInit();
+        }
+    })();
+    </script>
+
+</body>
+
+</html>
